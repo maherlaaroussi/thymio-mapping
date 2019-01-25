@@ -19,6 +19,7 @@ L’équipe en charge du projet à l’aval du client pour rajouter des composan
 * Capteurs Ultrason
 
 
-## Guides pour débuter :
-* https://docs.python.org/fr/3.5/tutorial/
-* https://www.thymio.org/fr:thymiostarting
+## Utilisation de GitLab :
+
+### Issues :
+* Quand vous répondez à des issues, si possible, mettez le temps passé sur la tâche en question ou le temps estimé. Pour cela il suffit simplement de mettre n'importe où dans la zone de réponse /spend ou /estimate suivi du temps. Exemple : /estimate 5d ou /spend 3h.
