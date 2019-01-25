@@ -16,8 +16,9 @@ L’équipe en charge du projet à l’aval du client pour rajouter des composan
 ### Matériels :
 * Thymio
 * Raspberry Pi Zero W
+* Capteurs Ultrason
 
 
-## Guide pour débuter :
+## Guides pour débuter :
 * https://docs.python.org/fr/3.5/tutorial/
 * https://www.thymio.org/fr:thymiostarting
