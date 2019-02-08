@@ -1,4 +1,4 @@
-# Bibliothèqe à avoir pour utiliser le Thymio
+# Bibliothèque à avoir pour utiliser le Thymio
 
 ### le lien :
 Vous trouverez ici la bibliothèque pour programmer avec le thymio:
