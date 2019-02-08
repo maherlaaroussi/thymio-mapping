@@ -1,7 +1,7 @@
 # Bibliothèqe à avoir pour utiliser le Thymio
 
 ### le lien :
-Vous trouverez ici la bibliothèque pour programmer avec le thymio.
+Vous trouverez ici la bibliothèque pour programmer avec le thymio:
 https://www.mediafire.com/file/a5n1jkpxgy2xre8/pythymiodw-master.zip/file
 
 ### Installation
