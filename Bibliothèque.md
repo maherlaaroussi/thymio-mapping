@@ -10,4 +10,4 @@ Il suffit de le télécharger (je vous laisse chercher sur le net comment télé
 
 Une fois fait il suffit d'aller à l'intérieur du fichier et prendre le fichier pythmiodw (les autres fichiers sont de la documentation et dans le fichier examples il y'a des exemple de programmes intéressants jetez-y un oeil).
 
-Pour utiliser la bibliothèque il sufft d'avoir un même dossier vos fichiers pythons qui manipulerons le thymio et le fichier pythmidow
+Pour utiliser la bibliothèque il sufft d'avoi  dans un même dossier vos fichiers pythons qui manipulerons le thymio et le fichier pythmidow
