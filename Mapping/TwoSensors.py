@@ -10,8 +10,8 @@ print "+------------------+"
 Trig1 = 23
 Echo1 = 24
 
-Trig2 = 25
-Echo2 = 22
+Trig2 = 22
+Echo2 = 25
 
 # 1er capteur
 GPIO.setup(Trig1,GPIO.OUT)
