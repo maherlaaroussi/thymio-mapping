@@ -23,20 +23,20 @@ def sensor(t, e) :
 
     time.sleep(1)
 
-     GPIO.output(t, True)
-     time.sleep(0.00001)
-     GPIO.output(t, False)
+    GPIO.output(t, True)
+    time.sleep(0.00001)
+    GPIO.output(t, False)
 
-     while GPIO.input(e)==0:
-       debutImpulsion = time.time()
+    while GPIO.input(e)==0:
+    debutImpulsion = time.time()
 
-     while GPIO.input(e)==1:
-       finImpulsion = time.time()
+    while GPIO.input(e)==1:
+    finImpulsion = time.time()
 
-     distance = round((finImpulsion - debutImpulsion) * 340 * 100 / 2, 1)
-     temps = finImpulsion - debutImpulsion
+    distance = round((finImpulsion - debutImpulsion) * 340 * 100 / 2, 1)
+    temps = finImpulsion - debutImpulsion
 
-     print "La distance est de : ", distance," cm"
-     print "Debut : ", temps," ms"
+    print "La distance est de : ", distance," cm"
+    print "Debut : ", temps," ms"
 
-     GPIO.cleanup()
+    GPIO.cleanup()
