@@ -10,8 +10,8 @@ print "+------------------+"
 Trig1 = 23
 Echo1 = 24
 
-Trig2 = 22
-Echo2 = 25
+Trig2 = 25
+Echo2 = 22
 
 # 1er capteur
 GPIO.setup(Trig1,GPIO.OUT)
@@ -43,6 +43,7 @@ for x in range(repet):
 
     print "Capteur 1 : ", distance1," cm"
 
+    time.sleep(0.00001)
 
     GPIO.output(Trig2, True)
     time.sleep(0.00001)
