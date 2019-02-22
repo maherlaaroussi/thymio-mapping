@@ -3,17 +3,6 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 
-print "+-----------------------------------------------------------+"
-print "|   Mesure de distance par le capteur ultrasonore HC-SR04   |"
-print "+-----------------------------------------------------------+"
-
-repet = input("Entrez un nombre de repetitions de mesure : ")
-
-for x in range(repet) :
-   scan(23, 24)
-
-GPIO.cleanup()
-
 def scan(t, e) :
 
     GPIO.setup(t, GPIO.OUT)
@@ -40,3 +29,15 @@ def scan(t, e) :
     print "Debut : ", temps," ms"
 
     GPIO.cleanup()
+
+
+print "+-----------------------------------------------------------+"
+print "|   Mesure de distance par le capteur ultrasonore HC-SR04   |"
+print "+-----------------------------------------------------------+"
+
+repet = input("Entrez un nombre de repetitions de mesure : ")
+
+for x in range(repet) :
+   scan(23, 24)
+
+GPIO.cleanup()
