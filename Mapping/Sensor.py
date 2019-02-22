@@ -3,36 +3,52 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 
-print "+-----------------------------------------------------------+"
-print "|   Mesure de distance par le capteur ultrasonore HC-SR04   |"
-print "+-----------------------------------------------------------+"
+print "+------------------+"
+print "|   Cartographie   |"
+print "+------------------+"
 
-Trig = 23          # Entree Trig du HC-SR04 branchee au GPIO 23
-Echo = 24         # Sortie Echo du HC-SR04 branchee au GPIO 24
+Trig1 = 23
+Echo1 = 24
 
-GPIO.setup(Trig,GPIO.OUT)
-GPIO.setup(Echo,GPIO.IN)
+Trig2 = 22
+Echo2 = 25
 
-GPIO.output(Trig, False)
+# 1er capteur
+GPIO.setup(Trig1,GPIO.OUT)
+GPIO.setup(Echo1,GPIO.IN)
+GPIO.output(Trig1, False)
 
-repet = input("Entrez un nombre de repetitions de mesure : ")
+# 2e capteur
+GPIO.setup(Trig2,GPIO.OUT)
+GPIO.setup(Echo2,GPIO.IN)
+GPIO.output(Trig2, False)
+
+repet = input("Combien de fois ? ")
 
 for x in range(repet):    # On prend la mesure "repet" fois
 
-   time.sleep(1)       # On la prend toute les 1 seconde
+   time.sleep(1)
 
-   GPIO.output(Trig, True)
+   GPIO.output(Trig1, True)
+   GPIO.output(Trig2, True)
    time.sleep(0.00001)
-   GPIO.output(Trig, False)
+   GPIO.output(Trig1, False)
+   GPIO.output(Trig2, False)
 
-   while GPIO.input(Echo)==0:  ## Emission de l'ultrason
+   while GPIO.input(Echo1) == 0 :
      debutImpulsion = time.time()
-
-   while GPIO.input(Echo)==1:   ## Retour de l'Echo
+   while GPIO.input(Echo1) == 1:
      finImpulsion = time.time()
 
-   distance = round((finImpulsion - debutImpulsion) * 340 * 100 / 2, 1)  ## Vitesse du son = 340 m/s
+    while GPIO.input(Echo2) == 0 :
+      debutImpulsion2 = time.time()
+    while GPIO.input(Echo2) == 1:
+      finImpulsion2 = time.time()
 
-   print "La distance est de : ",distance," cm"
+   distance1 = round((finImpulsion1 - debutImpulsion1) * 340 * 100 / 2, 1)
+   distance2 = round((finImpulsion2 - debutImpulsion2) * 340 * 100 / 2, 1)
+
+   print "Capteur 1 : ", distance1, " cm"
+   print "Capteur 2 : ", distance2, " cm"
 
 GPIO.cleanup()
