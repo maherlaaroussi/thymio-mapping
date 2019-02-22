@@ -30,17 +30,19 @@ for x in range(repet):    # On prend la mesure "repet" fois
     time.sleep(1)
 
     GPIO.output(Trig1, True)
+    time.sleep(0.00001)
     GPIO.output(Trig2, True)
-
     time.sleep(0.00001)
 
     GPIO.output(Trig1, False)
+    time.sleep(0.00001)
     GPIO.output(Trig2, False)
+    time.sleep(0.00001)
 
     while GPIO.input(Echo1) == 0:
-        debutImpulsion = time.time()
+        debutImpulsion1 = time.time()
     while GPIO.input(Echo1) == 1:
-        finImpulsion = time.time()
+        finImpulsion1 = time.time()
 
     while GPIO.input(Echo2) == 0:
         debutImpulsion2 = time.time()
