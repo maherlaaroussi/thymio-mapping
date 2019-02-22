@@ -25,34 +25,37 @@ GPIO.output(Trig2, False)
 
 repet = input("Combien de fois ? ")
 
-for x in range(repet):    # On prend la mesure "repet" fois
+for x in range(repet):
 
     time.sleep(1)
 
     GPIO.output(Trig1, True)
     time.sleep(0.00001)
-    GPIO.output(Trig2, True)
-    time.sleep(0.00001)
-
     GPIO.output(Trig1, False)
-    time.sleep(0.00001)
-    GPIO.output(Trig2, False)
-    time.sleep(0.00001)
 
-    while GPIO.input(Echo1) == 0:
-        debutImpulsion1 = time.time()
-    while GPIO.input(Echo1) == 1:
-        finImpulsion1 = time.time()
+    while GPIO.input(Echo1)==0:
+      debutImpulsion1 = time.time()
 
-    while GPIO.input(Echo2) == 0:
-        debutImpulsion2 = time.time()
-    while GPIO.input(Echo2) == 1:
-            finImpulsion2 = time.time()
+    while GPIO.input(Echo1)==1:
+      finImpulsion1 = time.time()
 
     distance1 = round((finImpulsion1 - debutImpulsion1) * 340 * 100 / 2, 1)
+
+    print "Capteur 1 : ", distance1," cm"
+
+
+    GPIO.output(Trig2, True)
+    time.sleep(0.00001)
+    GPIO.output(Trig2, False)
+
+    while GPIO.input(Echo2)==0:
+      debutImpulsion2 = time.time()
+
+    while GPIO.input(Echo2)==1:
+      finImpulsion2 = time.time()
+
     distance2 = round((finImpulsion2 - debutImpulsion2) * 340 * 100 / 2, 1)
 
-    print "Capteur 1 : ", distance1, " cm"
-    print "Capteur 2 : ", distance2, " cm"
+    print "Capteur 2 : ", distance2," cm"
 
     GPIO.cleanup()
