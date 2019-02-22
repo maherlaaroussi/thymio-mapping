@@ -3,54 +3,36 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 
-print "+------------------+"
-print "|   Cartographie   |"
-print "+------------------+"
+print "+-----------------------------------------------------------+"
+print "|   Mesure de distance par le capteur ultrasonore HC-SR04   |"
+print "+-----------------------------------------------------------+"
 
-Trig1 = 23
-Echo1 = 24
+Trig = 23          # Entree Trig du HC-SR04 branchee au GPIO 23
+Echo = 24         # Sortie Echo du HC-SR04 branchee au GPIO 24
 
-Trig2 = 22
-Echo2 = 25
+GPIO.setup(Trig,GPIO.OUT)
+GPIO.setup(Echo,GPIO.IN)
 
-# 1er capteur
-GPIO.setup(Trig1,GPIO.OUT)
-GPIO.setup(Echo1,GPIO.IN)
-GPIO.output(Trig1, False)
+GPIO.output(Trig, False)
 
-# 2e capteur
-GPIO.setup(Trig2,GPIO.OUT)
-GPIO.setup(Echo2,GPIO.IN)
-GPIO.output(Trig2, False)
-
-repet = input("Combien de fois ? ")
+repet = input("Entrez un nombre de repetitions de mesure : ")
 
 for x in range(repet):    # On prend la mesure "repet" fois
 
-    time.sleep(1)
+   time.sleep(1)       # On la prend toute les 1 seconde
 
-    GPIO.output(Trig1, True)
-    GPIO.output(Trig2, True)
+   GPIO.output(Trig, True)
+   time.sleep(0.00001)
+   GPIO.output(Trig, False)
 
-    time.sleep(0.00001)
+   while GPIO.input(Echo)==0:  ## Emission de l'ultrason
+     debutImpulsion = time.time()
 
-    GPIO.output(Trig1, False)
-    GPIO.output(Trig2, False)
+   while GPIO.input(Echo)==1:   ## Retour de l'Echo
+     finImpulsion = time.time()
 
-    while GPIO.input(Echo1) == 0:
-        debutImpulsion = time.time()
-    while GPIO.input(Echo1) == 1:
-        finImpulsion = time.time()
+   distance = round((finImpulsion - debutImpulsion) * 340 * 100 / 2, 1)  ## Vitesse du son = 340 m/s
 
-    while GPIO.input(Echo2) == 0:
-        debutImpulsion2 = time.time()
-    while GPIO.input(Echo2) == 1:
-            finImpulsion2 = time.time()
+   print "La distance est de : ",distance," cm"
 
-    distance1 = round((finImpulsion1 - debutImpulsion1) * 340 * 100 / 2, 1)
-    distance2 = round((finImpulsion2 - debutImpulsion2) * 340 * 100 / 2, 1)
-
-    print "Capteur 1 : ", distance1, " cm"
-    print "Capteur 2 : ", distance2, " cm"
-
-    GPIO.cleanup()
+GPIO.cleanup()
