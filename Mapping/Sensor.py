@@ -28,10 +28,10 @@ def sensor(t, e) :
     GPIO.output(t, False)
 
     while GPIO.input(e)==0:
-    debutImpulsion = time.time()
+        debutImpulsion = time.time()
 
     while GPIO.input(e)==1:
-    finImpulsion = time.time()
+        finImpulsion = time.time()
 
     distance = round((finImpulsion - debutImpulsion) * 340 * 100 / 2, 1)
     temps = finImpulsion - debutImpulsion
