@@ -1,10 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BCM)
-
 def scan(t, e) :
 
+    GPIO.setmode(GPIO.BCM)
+    
     GPIO.setup(t, GPIO.OUT)
     GPIO.setup(e, GPIO.IN)
 
