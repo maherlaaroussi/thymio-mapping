@@ -7,8 +7,8 @@ print "+-----------------------------------------------------------+"
 print "|   Mesure de distance par le capteur ultrasonore HC-SR04   |"
 print "+-----------------------------------------------------------+"
 
-Trig = 25       # Entree Trig du HC-SR04 branchee au GPIO 23
-Echo = 22         # Sortie Echo du HC-SR04 branchee au GPIO 24
+Trig = 23          # Entree Trig du HC-SR04 branchee au GPIO 23
+Echo = 24         # Sortie Echo du HC-SR04 branchee au GPIO 24
 
 GPIO.setup(Trig,GPIO.OUT)
 GPIO.setup(Echo,GPIO.IN)
