@@ -10,11 +10,11 @@ print "+-----------------------------------------------------------+"
 repet = input("Entrez un nombre de repetitions de mesure : ")
 
 for x in range(repet) :
-   sensor(23, 24)
+   scan(23, 24)
 
 GPIO.cleanup()
 
-def sensor(t, e) :
+def scan(t, e) :
 
     GPIO.setup(t, GPIO.OUT)
     GPIO.setup(e, GPIO.IN)
