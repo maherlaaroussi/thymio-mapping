@@ -34,7 +34,7 @@ for x in range(repet):    # On prend la mesure "repet" fois
    distance = round((finImpulsion - debutImpulsion) * 340 * 100 / 2, 1)  ## Vitesse du son = 340 m/s
 
    print "La distance est de : ", distance," cm"
-   print "Début : ", debutImpulsion," ms"
+   print "Debut : ", debutImpulsion," ms"
    print "Fin : ", finImpulsion," ms"
 
 GPIO.cleanup()
