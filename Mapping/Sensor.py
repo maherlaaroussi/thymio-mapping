@@ -16,12 +16,12 @@ GPIO.cleanup()
 
 def sensor(t, e) :
 
-    GPIO.setup(Trig,GPIO.OUT)
-    GPIO.setup(Echo,GPIO.IN)
+    GPIO.setup(t, GPIO.OUT)
+    GPIO.setup(e, GPIO.IN)
 
-    GPIO.output(Trig, False)
+    GPIO.output(t, False)
 
-     time.sleep(1)
+    time.sleep(1)
 
      GPIO.output(t, True)
      time.sleep(0.00001)
