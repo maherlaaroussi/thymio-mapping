@@ -1,4 +1,4 @@
-# Thymio Mapping Project &#x1F53A;
+# &#x1F53A; Thymio Mapping Project &#x1F53A;
 
 ### La demande :
 Le client ne nous impose pas de contraintes particulières dans la mesure où il veut
@@ -21,7 +21,7 @@ L’équipe en charge du projet à l’aval du client pour rajouter des composan
 * Batterie
 
 
-### Utilisation de GitLab :
+## GitLab :
 #### 1ère étape : Configuration
 Avant toute chose, commencez par configurer votre git en mettant votre nom d'utilisateur gitlab et votre adresse mail, la même que celle présente dans votre compte GitLab.  
 `git config user.name "maherlaaroussi"`  
@@ -36,9 +36,6 @@ Puis faites votre vie en modifiant ou en ajoutant des fichiers et ensuite à cha
 `git add *`  
 `git commit -m "Un message ici"`  
 `git push`
-
-### Issues :
-Quand vous répondez à des issues, si possible, mettez le temps passé sur la tâche en question ou le temps estimé. Pour cela il suffit simplement de mettre n'importe où dans la zone de réponse /spend ou /estimate suivi du temps. Exemple : /estimate 5d ou /spend 3h.
 
 
 ## PyThymioDW
