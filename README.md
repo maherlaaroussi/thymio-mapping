@@ -24,12 +24,12 @@ L’équipe en charge du projet à l’aval du client pour rajouter des composan
 ### Utilisation de GitLab :
 #### 1ère étape : Configuration
 Avant toute chose, commencez par configurer votre git en mettant votre nom d'utilisateur gitlab et votre adresse mail, la même que celle présente dans votre compte GitLab.  
-git config user.name "maherlaaroussi"
-git config user.email "maher@outlook.fr"  
+`git config user.name "maherlaaroussi"`  
+`git config user.email "maher@outlook.fr"`
 
 #### 2e étape : Clonage
 Ensuite, vous pourrez cloner ce dépot :  
-`git clone https://gitlab.com/maherlaaroussi/thymio-mapping.git`  
+`git clone https://gitlab.com/maherlaaroussi/thymio-mapping.git`
 
 #### 3e étape : Commit & Push
 Puis faites votre vie en modifiant ou en ajoutant des fichiers et ensuite à chaque fois que vous voulez commit & push ces changements/ajouts/modifications/suppressions, faites ces 3 commandes en vous plaçant à la racine de votre répertoire :  
