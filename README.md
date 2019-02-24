@@ -27,9 +27,11 @@ Avant toute chose, commencez par configurer votre git en mettant votre nom d'uti
 git config user.name "maherlaaroussi"
 git config user.email "maher@outlook.fr"  
 
+#### 2e étape : Clonage
 Ensuite, vous pourrez cloner ce dépot :  
 `git clone https://gitlab.com/maherlaaroussi/thymio-mapping.git`  
-  
+
+#### 3e étape : Commit & Push
 Puis faites votre vie en modifiant ou en ajoutant des fichiers et ensuite à chaque fois que vous voulez commit & push ces changements/ajouts/modifications/suppressions, faites ces 3 commandes en vous plaçant à la racine de votre répertoire :  
 `git add *`  
 `git commit -m "Un message ici"`  
