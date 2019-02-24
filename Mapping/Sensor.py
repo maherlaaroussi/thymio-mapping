@@ -4,7 +4,7 @@ import time
 def scan(t, e) :
 
     GPIO.setmode(GPIO.BCM)
-    
+
     GPIO.setup(t, GPIO.OUT)
     GPIO.setup(e, GPIO.IN)
 
@@ -39,5 +39,3 @@ repet = input("Entrez un nombre de repetitions de mesure : ")
 
 for x in range(repet) :
    scan(23, 24)
-
-GPIO.cleanup()
