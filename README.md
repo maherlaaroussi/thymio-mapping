@@ -37,6 +37,10 @@ Puis faites votre vie en modifiant ou en ajoutant des fichiers et ensuite à cha
 `git commit -m "Un message ici"`  
 `git push`
 
+#### Conseil : Même obligation
+N'oubliez pas de faire un pull à chaque fois que vous commencez à travailler pour ainsi télécharger toutes les modifications faite au dépot.  
+`git pull`  
+
 
 ## PyThymioDW
 
