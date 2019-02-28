@@ -13,4 +13,4 @@ def rotate(data, angle) :
 
     angleChoisi = angle/10 + ajoutAngle
     pwm.ChangeDutyCycle(angleChoisi)
-    time.sleep(1)
+    time.sleep(10)
