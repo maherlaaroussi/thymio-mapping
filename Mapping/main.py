@@ -17,7 +17,7 @@ angle = 0
 
 for x in range(18) :
     rotate(servo, angle)
-    angle = angle + 5
+    angle = angle + 10
     scan(t1, e1)
     scan(t2, e2)
     print("----------------")
