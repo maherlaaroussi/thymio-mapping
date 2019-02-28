@@ -1,4 +1,4 @@
-from ulrasonic import *
+from ultrasonic import *
 from servomotor import *
 
 # Mode GPIO
