@@ -21,6 +21,9 @@ for x in range(18) :
     scan(t1, e1)
     scan(t2, e2)
     print("----------------")
+    time.sleep(0.5)
+
+rotate(servo, 0)
 
 
 # Clean GPIOs
