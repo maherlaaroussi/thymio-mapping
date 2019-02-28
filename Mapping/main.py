@@ -6,21 +6,22 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 # GPIOs sensors
-t1 = 21
-e1 = 20
-t2 = 26
-e2 = 19
+t1 = 20
+e1 = 21
+t2 = 29
+e2 = 26
+servp = 4
 angle = 0
 
 # =========================================================
 
 for x in range(18) :
-    print("======================")
-   scan(t1, e1)
-   scan(t2, e2)
-   print("======================")
-   rotate(4, angle)
-   angle = angle + 10
+    rotate(servo, angle)
+    angle = angle + 5
+    scan(t1, e1)
+    scan(t2, e2)
+    print("----------------")
+
 
 # Clean GPIOs
 GPIO.cleanup()
