@@ -16,6 +16,7 @@ e2 = 19
 for x in range(5) :
    scan(t1, e1)
    scan(t2, e2)
+   print("======================")
    rotate(4, 180)
 
 # Clean GPIOs

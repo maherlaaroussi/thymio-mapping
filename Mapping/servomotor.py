@@ -12,5 +12,6 @@ def rotate(data, angle) :
     pwm.start(5)
 
     angleChoisi = ang/10 + addAngle
+    print("Rotation de " + ang + " degres ...")
     pwm.ChangeDutyCycle(angleChoisi)
     time.sleep(10)
