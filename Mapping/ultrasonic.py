@@ -9,8 +9,6 @@ def scan(t, e) :
     GPIO.setup(e, GPIO.IN)
     GPIO.output(t, False)
 
-    time.sleep(1)
-
     # Envoie de l'onde
     GPIO.output(t, True)
     time.sleep(0.00001)

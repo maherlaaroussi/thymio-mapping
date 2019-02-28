@@ -14,12 +14,13 @@ angle = 0
 
 # =========================================================
 
-for x in range(5) :
+for x in range(18) :
+    print("======================")
    scan(t1, e1)
    scan(t2, e2)
    print("======================")
    rotate(4, angle)
-   angle = angle + 30
+   angle = angle + 10
 
 # Clean GPIOs
 GPIO.cleanup()
