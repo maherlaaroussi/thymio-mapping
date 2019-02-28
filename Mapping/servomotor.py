@@ -20,7 +20,7 @@ choix = int(input("1. Choisir un angle\n2. Faire tourner de 0 a 180\n"))
 if (choix == 2) :
     nbrTour = int(input("Entrez le nombre d'aller-retour que fera le Servo :\n"))
 
-    pwm=GPIO.PWM(17,100)
+    pwm=GPIO.PWM(4,100)
     pwm.start(5)
 
     angle1 = 0
