@@ -22,10 +22,14 @@ x = 0
 y = 0
 x2 = 0
 y2 = 0
+fx = 0
+fy = 0
+fx2 = 0
+fy2 = 0
 
 # =========================================================
 
-turtle.setup(300, 300)
+turtle.setup(500, 500)
 turtle.title("Cartographie")
 turtle.bgcolor("blue")
 turtle.hideturtle()
@@ -61,25 +65,30 @@ for i in range(18) :
 
     x = vf * cos(angle / 180. * pi)
     y = vf * sin(angle / 180. * pi)
-
     print("x: " + str(x) + " y: " + str(y))
 
-    if (x != 0 and y != 0):
+    if (xold != 0 and yold != 0):
         turtle.up()
         turtle.goto(xold, yold)
         turtle.down()
         turtle.goto(x, y)
+    else:
+        fx = x
+        fy = y
+
 
     x2 = vb * cos((angle + 180) / 180. * pi)
     y2 = vb * sin((angle + 180) / 180. * pi)
-
     print("x2: " + str(x2) + " y2: " + str(y2))
 
-    if (x2 != 0 and y2 != 0):
+    if (x2old != 0 and y2old != 0):
         turtle.up()
         turtle.goto(x2old, y2old)
         turtle.down()
         turtle.goto(x2, y2)
+    else:
+        fx2 = x2
+        fy2 = y2
 
     print(str(angle) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
     print("----------------------------------")
@@ -88,6 +97,16 @@ for i in range(18) :
     angle = angle + step
 
 rotate(servo, 0)
+
+turtle.up()
+turtle.goto(x, y)
+turtle.down()
+turtle.goto(fx2, fy2)
+
+turtle.up()
+turtle.goto(x2, y2)
+turtle.down()
+turtle.goto(fx, fy)
 time.sleep(500)
 
 
