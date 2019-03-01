@@ -17,6 +17,7 @@ e2 = 26
 servo = 4
 
 angle = 0
+corps = 15
 
 # Précision du scan
 step = 5
@@ -40,7 +41,7 @@ turtle.hideturtle()
 turtle.pencolor("white")
 
 # Traçage du robot
-taille = 4
+taille = 10
 turtle.forward(taille)
 turtle.left(360/3)
 turtle.forward(taille)
@@ -77,14 +78,26 @@ for i in range(int((180 / step) + 1)) :
     cb2 = scan(t2, e2)
 
     # Selected values
-    vf = min(c2, cb2) - 2
-    vb = min(c1, cb1) - 2.5
+    vf = min(c2, cb2) - 2 + corps
+    vb = min(c1, cb1) - 3 + corps
 
+    turtle.up()
+    turtle.forward(corps)
+
+    turtle.down()
     turtle.forward(vf)
-    turtle.backward(vf)
 
+    turtle.up()
+    turtle.forward(corps + vf)
+
+    turtle.backward(corps)
+    turtle.down()
     turtle.backward(vb)
+
     turtle.forward(vb)
+
+    urtle.up()
+    turtle.backward(corps)
 
     turtle.left(step)
 
