@@ -18,6 +18,9 @@ servo = 4
 angle = 0
 step = 10
 
+x = 0
+y = 0
+
 # =========================================================
 
 turtle.setup(300, 300)
@@ -36,8 +39,8 @@ for x in range(18) :
 
     c1 = 0
     c2 = 0
-    x = 0
-    y = 0
+    xold = x
+    yold = y
     rotate(servo, angle)
     angle = angle + step
 
@@ -55,9 +58,13 @@ for x in range(18) :
 
     x = vf * cos(angle - step)
     y = vf * sin(angle - step)
+    print("x: " + x)
+    print("y: " + y)
     turtle.goto(x, y)
     x = vb * cos(angle - step)
     y = vb * sin(angle - step)
+    print("x: " + x)
+    print("y: " + y)
     turtle.goto(x, y)
 
     print(str(angle - step) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
