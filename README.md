@@ -58,7 +58,7 @@ Par chance la bibliothèque est incorporée en python et on peut donc l'installe
 
 Commençons par installer pip ou pip3 si ce n'est pas déjà fait :  
 Pour python  : `sudo apt-get install python-pip`
-Pour python3 : `sudo apt-get install python3-pip`
+Pour python3 : `sudo apt-get install python3-pip`  
 
 Sinon mettez le à jour.
 
@@ -68,7 +68,7 @@ Pour python3 :  `sudo pip3 install libdw`
 
 Puis il suffit d'installer notre bibliothèque adorée :   
 Pour Python  : `sudo pip install pythymiodw`  
-Pour Python3 : `sudo pip3 install pythymiodw`  
+Pour Python3 : `sudo pip3 install pythymiodw`    
 
 Dernière étape, il vous faut deux bibliotèques supplémentaires.  
 Il faut la bibliotèque tk  
