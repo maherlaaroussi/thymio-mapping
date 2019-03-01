@@ -28,7 +28,7 @@ for x in range(18) :
     angle = angle + 10
     c1 = scan(t1, e1)
     c2 = scan(t2, e2)
-    print(str(angle - 10) + "° : B:" + str(c1) + "F:" + str(c2))
+    print(str(angle - 10) + "° : B:" + str(c1) + " -// F:" + str(c2))
     print("-------------------")
     time.sleep(0.5)
 
