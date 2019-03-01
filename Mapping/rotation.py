@@ -16,9 +16,9 @@ servo = 4
 angle = 0
 
 # =========================================================
-scan(t1, e1)
+print(str(scan(t1, e1)))
 rotate(servo, 180)
-scan(t1, e1)
+print(str(scan(t1, e1)))
 rotate(servo, 0)
 
 
