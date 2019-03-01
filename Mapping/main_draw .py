@@ -51,6 +51,7 @@ for x in range(36) :
     time.sleep(0.5)
 
 rotate(servo, 0)
+time.sleep(500)
 
 
 # Clean GPIOs
