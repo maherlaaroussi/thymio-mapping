@@ -17,7 +17,7 @@ e2 = 26
 servo = 4
 angle = 0
 
-step = 5
+step = 2
 
 x = 0
 y = 0
@@ -42,7 +42,7 @@ rotate(servo, 180)
 
 print("-------------------")
 
-for i in range(36) :
+for i in range(180 / step) :
 
     c1 = 0
     c2 = 0
