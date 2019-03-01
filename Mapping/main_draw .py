@@ -60,9 +60,18 @@ for i in range(int((180 / step) + 1)) :
     cb1 = scan(t1, e1)
     cb2 = scan(t2, e2)
 
+    # 3rd scan
+    cbb1 = scan(t1, e1)
+    cbb2 = scan(t2, e2)
+
     # Selected values
-    vf = min(c2, cb2)
-    vb = min(c1, cb1)
+    vf = min(cbb2, min(c2, cb2))
+    vb = min(cbb1, min(c1, cb1))
+
+    if (vf > 400) :
+        vf = 400
+    if (vb > 400) :
+        vb = 400
 
     x = vf * cos(angle / 180. * pi)
     y = vf * sin(angle / 180. * pi)
