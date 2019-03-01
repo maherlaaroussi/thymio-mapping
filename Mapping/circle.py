@@ -20,7 +20,7 @@ angle = 0
 corps = 15
 
 # Précision du scan
-step = 5
+step = 2
 
 # Vars de pos
 x = 0
