@@ -20,6 +20,8 @@ step = 10
 
 x = 0
 y = 0
+x2 = 0
+y2 = 0
 
 # =========================================================
 
@@ -41,6 +43,8 @@ for i in range(18) :
     c2 = 0
     xold = x
     yold = y
+    x2old = x2
+    y2old = y2
     rotate(servo, angle)
 
     # 1st scan
@@ -59,12 +63,21 @@ for i in range(18) :
     y = vf * sin(angle / 180. * pi)
 
     print("x: " + str(x) + " y: " + str(y))
-    print("cos: " + str(cos(angle)) + " sin: " + str(sin(angle)))
 
     turtle.up()
     turtle.goto(xold, yold)
     turtle.down()
     turtle.goto(x, y)
+
+    x2 = vb * cos(angle / 180. * pi)
+    y2 = vb * sin(angle / 180. * pi)
+
+    print("x2: " + str(x2) + " y2: " + str(y2))
+
+    turtle.up()
+    turtle.goto(x2old, y2old)
+    turtle.down()
+    turtle.goto(x2, y2)
 
     print(str(angle) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
     print("----------------------------------")
