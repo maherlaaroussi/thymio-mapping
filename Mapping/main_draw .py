@@ -56,17 +56,15 @@ for i in range(int((180 / step) + 1)) :
     c1 = scan(t1, e1)
     c2 = scan(t2, e2)
 
+    time.sleep(0.01)
+
     # 2nd scan
     cb1 = scan(t1, e1)
     cb2 = scan(t2, e2)
 
-    # 3rd scan
-    cbb1 = scan(t1, e1)
-    cbb2 = scan(t2, e2)
-
     # Selected values
-    vf = min(cbb2, min(c2, cb2))
-    vb = min(cbb1, min(c1, cb1))
+    vf = min(c2, cb2)
+    vb = min(c1, cb1)
 
     if (vf > 400) :
         vf = 400
@@ -75,7 +73,6 @@ for i in range(int((180 / step) + 1)) :
 
     x = vf * cos(angle / 180. * pi)
     y = vf * sin(angle / 180. * pi)
-    print("x: " + str(x) + " y: " + str(y))
 
     if (xold != 0 and yold != 0):
         turtle.up()
@@ -89,7 +86,6 @@ for i in range(int((180 / step) + 1)) :
 
     x2 = vb * cos((angle + 180) / 180. * pi)
     y2 = vb * sin((angle + 180) / 180. * pi)
-    print("x2: " + str(x2) + " y2: " + str(y2))
 
     if (x2old != 0 and y2old != 0):
         turtle.up()
