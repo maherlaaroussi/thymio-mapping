@@ -16,7 +16,8 @@ t2 = 19
 e2 = 26
 servo = 4
 angle = 0
-step = 10
+
+step = 5
 
 x = 0
 y = 0
