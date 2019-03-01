@@ -55,8 +55,8 @@ for i in range(18) :
     vf = min(c2, cb2)
     vb = min(c1, cb1)
 
-    x = vf * cos(angle)
-    y = vf * sin(angle)
+    x = vf * cos(angle / 180. * pi)
+    y = vf * sin(angle / 180. * pi)
 
     print("x: " + str(x) + " y: " + str(y))
     print("cos: " + str(cos(angle)) + " sin: " + str(sin(angle)))
