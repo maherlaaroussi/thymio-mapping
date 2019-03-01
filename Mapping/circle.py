@@ -80,7 +80,7 @@ for i in range(int((180 / step) + 1)) :
     if (xold != 0 and yold != 0):
         turtle.up()
         turtle.goto(x, y)
-        turtle.don()
+        turtle.down()
         turtle.circle(2)
     else:
         fx = x
@@ -93,7 +93,7 @@ for i in range(int((180 / step) + 1)) :
     if (x2old != 0 and y2old != 0):
         turtle.up()
         turtle.goto(x2, y2)
-        turtle.don()
+        turtle.down()
         turtle.circle(2)
     else:
         fx2 = x2
