@@ -62,22 +62,22 @@ Pour python3 : `sudo apt-get install python3-pip`
 
 Sinon mettez le à jour.
 
-Ensuite il faut installer la bibliotèque libdw.
-Pour python  : `sudo pip install libdw`
-Pour python3 :  `sudo pip3 install libdw`
+Ensuite il faut installer la bibliotèque libdw.  
+Pour python  : `sudo pip install libdw`  
+Pour python3 :  `sudo pip3 install libdw`  
 
-Puis il suffit d'installer notre bibliothèque adorée : 
-Pour Python  : `sudo pip install pythymiodw`
-Pour Python3 : `sudo pip3 install pythymiodw`
+Puis il suffit d'installer notre bibliothèque adorée :   
+Pour Python  : `sudo pip install pythymiodw`  
+Pour Python3 : `sudo pip3 install pythymiodw`  
 
-Dernière étape, il vous faut deux bibliotèques supplémentaires.
-Il faut la bibliotèque tk
-Pour Python   : `sudo apt-get install python-tk`
-Pour Python3  : `sudo apt-get install python3-tk`
+Dernière étape, il vous faut deux bibliotèques supplémentaires.  
+Il faut la bibliotèque tk  
+Pour Python   : `sudo apt-get install python-tk`  
+Pour Python3  : `sudo apt-get install python3-tk`  
 
-Et image tk
-Pour Python   : `sudo apt-get install python-imaging-tk`
-Pour Python3  : `sudo apt-get install python3-pil.imagetk`
+Et image tk  
+Pour Python   : `sudo apt-get install python-imaging-tk`  
+Pour Python3  : `sudo apt-get install python3-pil.imagetk`  
 
 ### Executer un fichier
 Pour executer le fichier, il suffit de faire sudo python votreFichier.py
