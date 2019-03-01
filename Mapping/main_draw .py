@@ -17,7 +17,7 @@ e2 = 26
 servo = 4
 angle = 0
 
-step = 10
+step = 5
 
 x = 0
 y = 0
@@ -93,7 +93,7 @@ for i in range(int((180 / step) + 1)) :
 
     print(str(angle) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
     print("----------------------------------")
-    time.sleep(0.5)
+    time.sleep(0.01)
 
     angle = angle + step
 
