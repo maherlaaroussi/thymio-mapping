@@ -79,9 +79,9 @@ for i in range(int((180 / step) + 1)) :
 
     if (xold != 0 and yold != 0):
         turtle.up()
-        turtle.goto(xold, yold)
-        turtle.down()
         turtle.goto(x, y)
+        turtle.don()
+        turtle.circle(2)
     else:
         fx = x
         fy = y
@@ -92,9 +92,9 @@ for i in range(int((180 / step) + 1)) :
 
     if (x2old != 0 and y2old != 0):
         turtle.up()
-        turtle.goto(x2old, y2old)
-        turtle.down()
         turtle.goto(x2, y2)
+        turtle.don()
+        turtle.circle(2)
     else:
         fx2 = x2
         fy2 = y2
@@ -106,16 +106,6 @@ for i in range(int((180 / step) + 1)) :
     angle = angle + step
 
 rotate(servo, 0)
-
-turtle.up()
-turtle.goto(x, y)
-turtle.down()
-turtle.goto(fx2, fy2)
-
-turtle.up()
-turtle.goto(x2, y2)
-turtle.down()
-turtle.goto(fx, fy)
 
 time.sleep(500)
 
