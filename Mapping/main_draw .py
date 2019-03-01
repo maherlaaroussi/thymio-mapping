@@ -15,7 +15,7 @@ t2 = 19
 e2 = 26
 servo = 4
 angle = 0
-step = 5
+step = 10
 
 # =========================================================
 
@@ -45,11 +45,11 @@ for x in range(36) :
     cb1 = scan(t1, e1)
     cb2 = scan(t2, e2)
 
-    turtle.forward(c1)
-    turtle.backward(c1)
-
-    turtle.backward(c2)
     turtle.forward(c2)
+    turtle.backward(c2)
+
+    turtle.backward(c1)
+    turtle.forward(c1)
 
     turtle.left(step)
 
