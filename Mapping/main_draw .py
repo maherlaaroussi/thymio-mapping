@@ -53,8 +53,6 @@ for x in range(18) :
     vf = min(c2, cb2)
     vb = min(c1, cb1)
 
-    turtle.home()
-    turtle.setheading(angle - step)
     x = vf * cos(angle - step)
     y = vf * sin(angle - step)
     turtle.goto(x, y)
