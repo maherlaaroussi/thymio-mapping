@@ -118,11 +118,8 @@ turtle.down()
 turtle.goto(fx, fy)
 
 
-turtle.pencolor("yellow")
+turtle.pencolor("blue")
 angle = 0
-
-# Précision du scan
-step = 5
 
 # Vars de pos
 x = 0
