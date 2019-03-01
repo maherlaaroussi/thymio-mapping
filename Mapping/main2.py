@@ -34,7 +34,7 @@ for x in range(18) :
     cb2 = scan(t2, e2)
     print(str(angle - 10) + "° : B:" + str(c1) + " cm - F:" + str(c2) + " cm")
     print(str(angle - 10) + "° : B:" + str(cb1) + " cm - F:" + str(cb2) + " cm")
-    print("-------------------")
+    print("----------------------------------")
     time.sleep(0.5)
 
 rotate(servo, 0)
