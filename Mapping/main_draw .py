@@ -55,10 +55,10 @@ for i in range(18) :
     vf = min(c2, cb2)
     vb = min(c1, cb1)
 
-    x = vf * cos(-angle)
-    y = vf * sin(-angle)
+    x = vf * cos(angle)
+    y = vf * sin(angle)
 
-    print("x: " + str(x) + "y: " + str(y))
+    print("x: " + str(x) + " y: " + str(y))
 
     turtle.up()
     turtle.goto(xold, yold)
