@@ -206,7 +206,6 @@ turtle.up()
 turtle.goto(x2, y2)
 turtle.down()
 turtle.goto(fx, fy)
-time.sleep(500)
 
 
 # Clean GPIOs
