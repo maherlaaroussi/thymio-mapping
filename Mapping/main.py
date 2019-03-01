@@ -21,6 +21,8 @@ angle = 0
 print("Initialisation du servo-motor ...")
 rotate(servo, 180)
 
+print("-------------------")
+
 for x in range(18) :
     c1 = 0
     c2 = 0
@@ -28,7 +30,7 @@ for x in range(18) :
     angle = angle + 10
     c1 = scan(t1, e1)
     c2 = scan(t2, e2)
-    print(str(angle - 10) + "° : B:" + str(c1) + " -// F:" + str(c2))
+    print(str(angle - 10) + "° : B:" + str(c1) + " cm // F:" + str(c2) + " cm")
     print("-------------------")
     time.sleep(0.5)
 
