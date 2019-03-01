@@ -23,8 +23,6 @@ def scan(t, e) :
     pulse_duration = pulse_end - pulse_start
     distance = round(pulse_duration * 17150, 1)
 
-    # Affichage
-    print ("Distance : ", distance," cm")
     return distance
 
 # =========================================================
