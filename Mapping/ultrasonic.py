@@ -19,7 +19,7 @@ def scan(t, e) :
     while (GPIO.input(e) == 1):
         pulse_end = time.time()
 
-    time.sleep(0.25)
+    time.sleep(0.01)
 
     # Calculs
     pulse_duration = pulse_end - pulse_start
