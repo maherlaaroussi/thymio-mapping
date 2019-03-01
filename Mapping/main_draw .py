@@ -36,8 +36,12 @@ for x in range(18) :
     cb1 = scan(t1, e1)
     cb2 = scan(t2, e2)
 
-    turtle.forward(c1)
-    turtle.backward(c1)
+    turtle.forward(c2)
+    turtle.backward(c2)
+    turtle.left(180)
+    turtle.forward(c2)
+    turtle.backward(c2)
+    turtle.right(180)
     turtle.left(10)
 
     print(str(angle - 10) + "° : B:" + str(c1) + " cm - F:" + str(c2) + " cm")
