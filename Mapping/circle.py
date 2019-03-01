@@ -19,7 +19,7 @@ servo = 4
 angle = 0
 
 # Précision du scan
-step = 5
+step = 2
 
 # Vars de pos
 x = 0
@@ -81,7 +81,7 @@ for i in range(int((180 / step) + 1)) :
         turtle.up()
         turtle.goto(x, y)
         turtle.down()
-        turtle.circle(2)
+        turtle.circle(3)
     else:
         fx = x
         fy = y
@@ -94,7 +94,7 @@ for i in range(int((180 / step) + 1)) :
         turtle.up()
         turtle.goto(x2, y2)
         turtle.down()
-        turtle.circle(2)
+        turtle.circle(3)
     else:
         fx2 = x2
         fy2 = y2
