@@ -3,6 +3,7 @@
 from ultrasonic import *
 from servomotor import *
 import turtle
+from math import *
 
 # Mode GPIO
 GPIO.setmode(GPIO.BCM)
