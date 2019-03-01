@@ -19,7 +19,7 @@ servo = 4
 angle = 0
 
 # Précision du scan
-step = 2
+step = 5
 
 # Vars de pos
 x = 0
@@ -38,6 +38,14 @@ turtle.title("Cartographie")
 turtle.bgcolor("black")
 turtle.hideturtle()
 turtle.pencolor("white")
+
+# Traçage du robot
+taille = 2
+turtle.forward(taille)
+turtle.left(360/3)
+turtle.forward(taille)
+turtle.left(360/3)
+turtle.forward(taille)
 
 # For fun)
 print("Initialisation du servo-motor ...")
@@ -69,35 +77,16 @@ for i in range(int((180 / step) + 1)) :
     vf = min(c2, cb2) - 2
     vb = min(c1, cb1) - 2.5
 
-    if (vf > 400) :
-        vf = 400
-    if (vb > 400) :
-        vb = 400
+    turtle.home()
+    turtle.setheading(0)
 
-    x = vf * cos(angle / 180. * pi)
-    y = vf * sin(angle / 180. * pi)
+    turtle.forward(vf)
+    turtle.backward(vf)
 
-    if (xold != 0 and yold != 0):
-        turtle.up()
-        turtle.goto(x, y)
-        turtle.down()
-        turtle.circle(3)
-    else:
-        fx = x
-        fy = y
+    turtle.backward(vb)
+    turtle.forward(vb)
 
-
-    x2 = vb * cos((angle + 180) / 180. * pi)
-    y2 = vb * sin((angle + 180) / 180. * pi)
-
-    if (x2old != 0 and y2old != 0):
-        turtle.up()
-        turtle.goto(x2, y2)
-        turtle.down()
-        turtle.circle(3)
-    else:
-        fx2 = x2
-        fy2 = y2
+    turtle.left(step)
 
     print(str(angle) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
     print("----------------------------------")
