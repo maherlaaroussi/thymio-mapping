@@ -23,6 +23,7 @@ turtle.setup(300, 300)
 turtle.title("Cartographie")
 turtle.bgcolor("blue")
 turtle.hideturtle()
+turtle.pencolor("white")
 
 # For fun)
 print("Initialisation du servo-motor ...")
