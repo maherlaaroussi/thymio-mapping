@@ -59,6 +59,7 @@ for i in range(18) :
     y = vf * sin(angle)
 
     print("x: " + str(x) + " y: " + str(y))
+    print("cos: " + str(cos(angle)) + " sin: " + str(sin(angle)))
 
     turtle.up()
     turtle.goto(xold, yold)
