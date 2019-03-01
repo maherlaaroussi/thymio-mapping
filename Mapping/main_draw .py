@@ -58,13 +58,13 @@ for x in range(18) :
 
     x = vf * cos(angle - step)
     y = vf * sin(angle - step)
-    print("x: " + x)
-    print("y: " + y)
+    print("x: " + str(x))
+    print("y: " + str(y))
     turtle.goto(x, y)
     x = vb * cos(angle - step)
     y = vb * sin(angle - step)
-    print("x: " + x)
-    print("y: " + y)
+    print("x: " + str(x))
+    print("y: " + str(y))
     turtle.goto(x, y)
 
     print(str(angle - step) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
