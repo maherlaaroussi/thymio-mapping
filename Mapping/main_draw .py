@@ -19,7 +19,10 @@ step = 5
 
 # =========================================================
 
-turtle.setup()
+turtle.setup(300, 300)
+turtle.title("Cartographie")
+turtle.bgcolor("blue")
+turtle.hideturtle()
 
 # For fun)
 print("Initialisation du servo-motor ...")
