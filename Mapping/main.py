@@ -19,7 +19,7 @@ servo = 4
 angle = 0
 
 # Précision du scan
-step = 3
+step = 1
 
 # Vars de pos
 x = 0
@@ -44,92 +44,6 @@ print("Initialisation du servo-motor ...")
 rotate(servo, 180)
 
 print("-------------------")
-
-for i in range(int((180 / step) + 1)) :
-
-    c1 = 0
-    c2 = 0
-    xold = x
-    yold = y
-    x2old = x2
-    y2old = y2
-    rotate(servo, angle)
-
-    # 1st scan
-    c1 = scan(t1, e1)
-    c2 = scan(t2, e2)
-
-    time.sleep(0.01)
-
-    # 2nd scan
-    cb1 = scan(t1, e1)
-    cb2 = scan(t2, e2)
-
-    # Selected values
-    vf = min(c2, cb2) - 2
-    vb = min(c1, cb1) - 2.5
-
-    if (vf > 400) :
-        vf = 400
-    if (vb > 400) :
-        vb = 400
-
-    x = vf * cos(angle / 180. * pi)
-    y = vf * sin(angle / 180. * pi)
-
-    if (xold != 0 and yold != 0):
-        turtle.up()
-        turtle.goto(xold, yold)
-        turtle.down()
-        turtle.goto(x, y)
-    else:
-        fx = x
-        fy = y
-
-
-    x2 = vb * cos((angle + 180) / 180. * pi)
-    y2 = vb * sin((angle + 180) / 180. * pi)
-
-    if (x2old != 0 and y2old != 0):
-        turtle.up()
-        turtle.goto(x2old, y2old)
-        turtle.down()
-        turtle.goto(x2, y2)
-    else:
-        fx2 = x2
-        fy2 = y2
-
-    print(str(angle) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
-    print("----------------------------------")
-    time.sleep(0.01)
-
-    angle = angle + step
-
-rotate(servo, 0)
-
-turtle.up()
-turtle.goto(x, y)
-turtle.down()
-turtle.goto(fx2, fy2)
-
-turtle.up()
-turtle.goto(x2, y2)
-turtle.down()
-turtle.goto(fx, fy)
-
-
-turtle.pencolor("blue")
-angle = 0
-
-# Vars de pos
-x = 0
-y = 0
-x2 = 0
-y2 = 0
-fx = 0
-fy = 0
-fx2 = 0
-fy2 = 0
 
 for i in range(int((180 / step) + 1)) :
 
