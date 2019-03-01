@@ -35,7 +35,7 @@ fy2 = 0
 
 turtle.setup(500, 500)
 turtle.title("Cartographie")
-turtle.bgcolor("blue")
+turtle.bgcolor("black")
 turtle.hideturtle()
 turtle.pencolor("white")
 
@@ -118,7 +118,7 @@ turtle.down()
 turtle.goto(fx, fy)
 
 
-
+turtle.pencolor("yellow")
 angle = 0
 
 # Précision du scan
