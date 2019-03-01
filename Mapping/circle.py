@@ -40,12 +40,15 @@ turtle.hideturtle()
 turtle.pencolor("white")
 
 # Traçage du robot
-taille = 2
+taille = 4
 turtle.forward(taille)
 turtle.left(360/3)
 turtle.forward(taille)
 turtle.left(360/3)
 turtle.forward(taille)
+
+turtle.home()
+turtle.setheading(0)
 
 # For fun)
 print("Initialisation du servo-motor ...")
@@ -76,9 +79,6 @@ for i in range(int((180 / step) + 1)) :
     # Selected values
     vf = min(c2, cb2) - 2
     vb = min(c1, cb1) - 2.5
-
-    turtle.home()
-    turtle.setheading(0)
 
     turtle.forward(vf)
     turtle.backward(vf)
