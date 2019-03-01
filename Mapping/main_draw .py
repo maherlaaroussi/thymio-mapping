@@ -36,17 +36,21 @@ for x in range(36) :
     c2 = 0
     rotate(servo, angle)
     angle = angle + step
+
+    # 1st scan
     c1 = scan(t1, e1)
     c2 = scan(t2, e2)
+
+    # 2nd scan
     cb1 = scan(t1, e1)
     cb2 = scan(t2, e2)
 
-    turtle.forward(c2)
+    turtle.forward(c1)
+    turtle.backward(c1)
+
     turtle.backward(c2)
-    turtle.left(180)
     turtle.forward(c2)
-    turtle.backward(c2)
-    turtle.right(180)
+
     turtle.left(step)
 
     print(str(angle - step) + "° : B:" + str(c1) + " cm - F:" + str(c2) + " cm")
