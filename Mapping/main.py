@@ -19,7 +19,7 @@ servo = 4
 angle = 0
 
 # Précision du scan
-step = 5
+step = 2
 
 # Vars de pos
 x = 0
