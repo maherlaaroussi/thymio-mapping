@@ -15,6 +15,7 @@ t2 = 19
 e2 = 26
 servo = 4
 angle = 0
+step = 5
 
 # =========================================================
 
@@ -26,11 +27,11 @@ rotate(servo, 180)
 
 print("-------------------")
 
-for x in range(18) :
+for x in range(36) :
     c1 = 0
     c2 = 0
     rotate(servo, angle)
-    angle = angle + 10
+    angle = angle + step
     c1 = scan(t1, e1)
     c2 = scan(t2, e2)
     cb1 = scan(t1, e1)
@@ -42,10 +43,10 @@ for x in range(18) :
     turtle.forward(c2)
     turtle.backward(c2)
     turtle.right(180)
-    turtle.left(10)
+    turtle.left(step)
 
-    print(str(angle - 10) + "° : B:" + str(c1) + " cm - F:" + str(c2) + " cm")
-    print(str(angle - 10) + "° : B:" + str(cb1) + " cm - F:" + str(cb2) + " cm")
+    print(str(angle - step) + "° : B:" + str(c1) + " cm - F:" + str(c2) + " cm")
+    print(str(angle - step) + "° : B:" + str(cb1) + " cm - F:" + str(cb2) + " cm")
     print("----------------------------------")
     time.sleep(0.5)
 
