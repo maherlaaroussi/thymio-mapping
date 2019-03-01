@@ -88,16 +88,14 @@ for i in range(int((180 / step) + 1)) :
     turtle.forward(vf)
 
     turtle.up()
-    turtle.forward(corps + vf)
+    turtle.backward(corps + vf)
 
     turtle.backward(corps)
     turtle.down()
     turtle.backward(vb)
 
-    turtle.forward(vb)
-
     turtle.up()
-    turtle.backward(corps)
+    turtle.forward(vb + corps)
 
     turtle.left(step)
 
