@@ -96,7 +96,7 @@ for i in range(int((180 / step) + 1)) :
 
     turtle.forward(vb)
 
-    urtle.up()
+    turtle.up()
     turtle.backward(corps)
 
     turtle.left(step)
