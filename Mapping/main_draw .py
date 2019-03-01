@@ -60,7 +60,12 @@ for x in range(18) :
     y = vf * sin(angle - step)
     print("x: " + str(x))
     print("y: " + str(y))
+    turtle.up()
     turtle.goto(-x, -y)
+    turtle.down()
+    turtle.goto(-xold, -yold)
+
+    turtle.up()
     x = vb * cos(angle - step)
     y = vb * sin(angle - step)
     print("x: " + str(x))
