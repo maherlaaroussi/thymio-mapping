@@ -64,20 +64,22 @@ for i in range(18) :
 
     print("x: " + str(x) + " y: " + str(y))
 
-    turtle.up()
-    turtle.goto(xold, yold)
-    turtle.down()
-    turtle.goto(x, y)
+    if (x != 0 && y != 0):
+        turtle.up()
+        turtle.goto(xold, yold)
+        turtle.down()
+        turtle.goto(x, y)
 
-    x2 = vb * cos(angle / 180. * pi)
-    y2 = vb * sin(angle / 180. * pi)
+    x2 = vb * cos((angle + 180) / 180. * pi)
+    y2 = vb * sin((angle + 180) / 180. * pi)
 
     print("x2: " + str(x2) + " y2: " + str(y2))
 
-    turtle.up()
-    turtle.goto(x2old, y2old)
-    turtle.down()
-    turtle.goto(x2, y2)
+    if (x2 != 0 && y2 != 0):
+        turtle.up()
+        turtle.goto(x2old, y2old)
+        turtle.down()
+        turtle.goto(x2, y2)
 
     print(str(angle) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
     print("----------------------------------")
