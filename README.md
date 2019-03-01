@@ -56,7 +56,7 @@ Seul le fichier pythymiodw.py nous intéresse. Il suffira de le mettre à coté 
 #### En ligne de commande
 Par chance la bibliothèque est incorporée en python et on peut donc l'installer et comme je suis quelqu'un de bien je vais décrire les étapes.
 
-Commençons par installer pip ou pip3 si ce n'est pas déjà fait :
+Commençons par installer pip ou pip3 si ce n'est pas déjà fait :  
 Pour python  : `sudo apt-get install python-pip`
 Pour python3 : `sudo apt-get install python3-pip`
 
@@ -80,4 +80,4 @@ Pour Python   : `sudo apt-get install python-imaging-tk`
 Pour Python3  : `sudo apt-get install python3-pil.imagetk`  
 
 ### Executer un fichier
-Pour executer le fichier, il suffit de faire sudo python votreFichier.py
+Pour executer le fichier, il suffit de faire `sudo python votreFichier.py`
