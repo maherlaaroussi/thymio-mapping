@@ -32,8 +32,11 @@ rotate(servo, 180)
 print("-------------------")
 
 for x in range(18) :
+
     c1 = 0
     c2 = 0
+    x = 0
+    y = 0
     rotate(servo, angle)
     angle = angle + step
 
@@ -49,13 +52,14 @@ for x in range(18) :
     vf = min(c2, cb2)
     vb = min(c1, cb1)
 
-    turtle.forward(vf)
-    turtle.backward(vf)
-
-    turtle.backward(vb)
-    turtle.forward(vb)
-
-    turtle.left(step)
+    turtle.home()
+    turtle.heading(angle - step)
+    x = vf * cos(angle - step)
+    y = vf * sin(angle - step)
+    turtle.goto(x, y)
+    x = vb * cos(angle - step)
+    y = vb * sin(angle - step)
+    turtle.goto(x, y)
 
     print(str(angle - step) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
     print("----------------------------------")
