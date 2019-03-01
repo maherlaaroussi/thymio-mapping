@@ -16,6 +16,7 @@ servo = 4
 angle = 0
 
 # =========================================================
+rotate(servo, 0)
 print(str(scan(t1, e1)))
 rotate(servo, 180)
 print(str(scan(t1, e1)))
