@@ -45,16 +45,19 @@ for x in range(36) :
     cb1 = scan(t1, e1)
     cb2 = scan(t2, e2)
 
-    turtle.forward(c2)
-    turtle.backward(c2)
+    # Selected values
+    vf = min(c2, cb2)
+    vb = min(c1, cb1)
 
-    turtle.backward(c1)
-    turtle.forward(c1)
+    turtle.forward(vf)
+    turtle.backward(vf)
+
+    turtle.backward(vb)
+    turtle.forward(vb)
 
     turtle.left(step)
 
-    print(str(angle - step) + "° : B:" + str(c1) + " cm - F:" + str(c2) + " cm")
-    print(str(angle - step) + "° : B:" + str(cb1) + " cm - F:" + str(cb2) + " cm")
+    print(str(angle - step) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
     print("----------------------------------")
     time.sleep(0.5)
 
