@@ -17,8 +17,10 @@ e2 = 26
 servo = 4
 angle = 0
 
-step = 5
+# Précision du scan
+step = 2
 
+# Vars de pos
 x = 0
 y = 0
 x2 = 0
