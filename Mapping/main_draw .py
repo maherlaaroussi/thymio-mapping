@@ -42,7 +42,7 @@ rotate(servo, 180)
 
 print("-------------------")
 
-for i in range(18) :
+for i in range(36) :
 
     c1 = 0
     c2 = 0
