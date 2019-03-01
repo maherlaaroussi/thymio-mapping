@@ -25,5 +25,6 @@ def scan(t, e) :
 
     # Affichage
     print ("Distance : ", distance," cm")
+    return distance
 
 # =========================================================

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from ultrasonic import *
 from servomotor import *
 
@@ -15,12 +17,19 @@ angle = 0
 
 # =========================================================
 
+# For fun)
+print("Initialisation du servo-motor ...")
+rotate(servo, 180)
+
 for x in range(18) :
+    c1 = 0
+    c2 = 0
     rotate(servo, angle)
     angle = angle + 10
-    scan(t1, e1)
-    scan(t2, e2)
-    print("----------------")
+    c1 = scan(t1, e1)
+    c2 = scan(t2, e2)
+    print(str(angle - 10) + "° : B:" + c1 + "F:" + c2)
+    print("-------------------")
     time.sleep(0.5)
 
 rotate(servo, 0)
