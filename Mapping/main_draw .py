@@ -31,7 +31,7 @@ rotate(servo, 180)
 
 print("-------------------")
 
-for x in range(36) :
+for x in range(18) :
     c1 = 0
     c2 = 0
     rotate(servo, angle)
