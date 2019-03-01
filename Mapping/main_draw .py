@@ -42,7 +42,6 @@ for i in range(18) :
     xold = x
     yold = y
     rotate(servo, angle)
-    angle = angle + step
 
     # 1st scan
     c1 = scan(t1, e1)
@@ -56,8 +55,8 @@ for i in range(18) :
     vf = min(c2, cb2)
     vb = min(c1, cb1)
 
-    x = vf * cos(angle - step)
-    y = vf * sin(angle - step)
+    x = vf * cos(-angle)
+    y = vf * sin(-angle)
 
     print("x: " + str(x) + "y: " + str(y))
 
@@ -66,9 +65,11 @@ for i in range(18) :
     turtle.down()
     turtle.goto(x, y)
 
-    print(str(angle - step) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
+    print(str(angle) + "° : B:" + str(vb) + " cm - F:" + str(vf) + " cm")
     print("----------------------------------")
     time.sleep(0.5)
+
+    angle = angle + step
 
 rotate(servo, 0)
 time.sleep(500)
