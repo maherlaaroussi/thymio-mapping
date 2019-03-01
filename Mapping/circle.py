@@ -40,14 +40,6 @@ turtle.bgcolor("black")
 turtle.hideturtle()
 turtle.pencolor("white")
 
-# Traçage du robot
-taille = 10
-turtle.forward(taille)
-turtle.left(360/3)
-turtle.forward(taille)
-turtle.left(360/3)
-turtle.forward(taille)
-
 turtle.home()
 turtle.setheading(0)
 
