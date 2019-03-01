@@ -63,8 +63,8 @@ for i in range(int((180 / step) + 1)) :
     cb2 = scan(t2, e2)
 
     # Selected values
-    vf = min(c2, cb2)
-    vb = min(c1, cb1)
+    vf = min(c2, cb2) - 2
+    vb = min(c1, cb1) - 2.5
 
     if (vf > 400) :
         vf = 400
