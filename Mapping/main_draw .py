@@ -64,7 +64,7 @@ for i in range(18) :
 
     print("x: " + str(x) + " y: " + str(y))
 
-    if (x != 0 && y != 0):
+    if (x != 0 and y != 0):
         turtle.up()
         turtle.goto(xold, yold)
         turtle.down()
@@ -75,7 +75,7 @@ for i in range(18) :
 
     print("x2: " + str(x2) + " y2: " + str(y2))
 
-    if (x2 != 0 && y2 != 0):
+    if (x2 != 0 and y2 != 0):
         turtle.up()
         turtle.goto(x2old, y2old)
         turtle.down()
