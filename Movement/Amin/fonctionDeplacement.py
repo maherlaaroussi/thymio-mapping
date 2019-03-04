@@ -7,7 +7,6 @@ Created on Sun Feb 17 10:14:41 2019
 @author: TImmy
 """
 
-import sys
 import time
 from pythymiodw import *
 import math as m
@@ -17,9 +16,9 @@ Variables globales
 """
 r = ThymioReal()
 vitesseG = 200
-vitesseD = 205
-tempsRotation = 0.011
-tempsAvancer = 8.5
+vitesseD = 200
+tempsRotation = 0.0133
+tempsAvancer = 6.5
 x= 0
 y= 0
 rotationRobot=0
@@ -27,7 +26,7 @@ rotationRobot=0
 """
 Fonction de calcul
 """
-def obstacle(distance1,distance2,distance3,distance4,distance5,distance6):
+def obstacle(distance1,distance2,distance3,distance4,distance5,distance6): # sert à rien 
     if r.prox_horizontal[0] > distance1 or r.prox_horizontal[1] > distance2 or r.prox_horizontal[2] > distance3 or r.prox_horizontal[3] > distance4 or r.prox_horizontal[4] > distance5 or r.prox_horizontal[5] > distance6:
         r.sound_system(3)   
         #r.sound_freq()
@@ -36,7 +35,7 @@ def obstacle(distance1,distance2,distance3,distance4,distance5,distance6):
         return 0
 
 def avancerTemps(temps):
-    r.wheels(200,200)
+    r.wheels(vitesseG,vitesseD)
     time.sleep(temps)
     r.wheels(0,0)
 
@@ -44,7 +43,7 @@ def calculTempsAvancement(distance):
     global tempsAvancer
     
     temps = distance/tempsAvancer
-    print("Avec une distance de "+str(distance)+" cm, le robot a avancé pendant "+str(temps)+" s.\8n")
+    #print("-Avec une distance de "+str(distance)+" cm, le robot a avancé pendant "+str(temps)+"s.")
     time.sleep((temps))
    
 
@@ -52,7 +51,7 @@ def calculTempsRotation(degree):
     global tempsRotation
     
     rotation = degree*tempsRotation
-    print("Avec une rotation de "+str(degree)+" degree(s), le robot a tourné pendant "+str(rotation)+" s.\n")
+    #print("-Avec une rotation de "+str(degree)+" degree(s), le robot tournera  pendant "+str(rotation)+"s.")
     time.sleep(rotation)
     
 def distanceParcourue(distance):
@@ -78,8 +77,8 @@ def distanceParcourue(distance):
     if rotationRobot >270 and rotationRobot < 360:
         tmp1 = m.cos(360-rotationRobot) * distance
         tmp2 = m.sin(360-rotationRobot) * distance
-        x = x-distance
-        y = y + distance
+        x = x-tmp1
+        y = y+tmp2
         
     if rotationRobot >0 and rotationRobot <90:
         tmp1 = m.cos(90-rotationRobot) * distance
@@ -167,7 +166,7 @@ def allerA(cordX,cordY):
             coteAdjacent = abs(cordX - x)
             coteOppose   = abs(cordY - y)
             hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle = m.acos(coteAdjacent/hypotenus)
+            angle = m.acos(coteAdjacent/hypotenus)*180/m.pi
             changerRotation(90)
             tg(angle)
             avancer(hypotenus)
@@ -180,7 +179,7 @@ def allerA(cordX,cordY):
             coteAdjacent = abs(x - cordX)
             coteOppose   = abs(cordY - y)
             hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle = m.acos(coteAdjacent/hypotenus)
+            angle = m.acos(coteAdjacent/hypotenus)*180/m.pi
             changerRotation(270)
             td(angle)
             avancer(hypotenus)
@@ -194,7 +193,7 @@ def allerA(cordX,cordY):
             coteAdjacent = abs(cordX - x)
             coteOppose   = abs(y - cordY)
             hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle        = m.acos(coteAdjacent/hypotenus)
+            angle        = m.acos(coteAdjacent/hypotenus)*180/m.pi
             changerRotation(90)
             td(angle)
             avancer(hypotenus)
@@ -203,11 +202,12 @@ def allerA(cordX,cordY):
             y = cordY
             
         if cordX < x: #On va en bas à gauche
-            
+            $
             coteAdjacent = abs(x - cordX)
             coteOppose   = abs(cordY - y)
             hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle        = m.acos(coteAdjacent/hypotenus)
+            angle        = m.acos(coteAdjacent/hypotenus)*180/m.pi
+            print("-coté adjacent : "+str(coteAdjacent)+" cote oppose : "+str(coteOppose)+" hypo : "+str(hypotenus)+" angle : " +str(angle))
             changerRotation(270)
             tg(angle)
             avancer(hypotenus)
@@ -228,34 +228,23 @@ if __name__ == "__main__":
     print("###########################################################\n")
     print("Bonjour ! Il est temps de vous montrer ma vraie puissance !\n")
     print("###########################################################\n") 
-    
-    print("###########################################################\n")
-    print("Initialisation : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)\n")
-    print("###########################################################\n")
-    print("Commençons soft : j'avance de 5 centimètres !\n")
-    print("###########################################################\n")
+    print("-Initialisation : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
+    print("-Commençons soft : j'avance de 5 centimètres !\n")
     attend(1)
     avancer(5)
-    print("###########################################################\n")
-    print("Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)\n")
-    print("###########################################################\n")
-    print("Ensuite tournons à gauche de 20 degrée(s) et avancons de 3 centimetres...\n")
-    print("###########################################################\n")
+    attend(3)
+    print("-Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
+    print("-Ensuite tournons à gauche de 90 degrée(s) et avancons de 3 centimetres...\n")
     attend(1)
     td(90)
     attend(1)
     avancer(4)
-    print("###########################################################\n")
-    print("Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)\n")
-    print("###########################################################\n")
-    print("Enfin, je retourne à mon point de départ et je m'arrête..\n")
-    print("###########################################################\n")
+    print("-Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
+    print("-Enfin, je retourne à mon point de départ et je m'arrête..\n")
     attend(1)
     allerA(0,0)
-    print("###########################################################\n")
-    print("Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)\n")
-    print("###########################################################\n")
-    print("Fin de mon petit voyage, ai-je réussi ?")
-    print("###########################################################\n")
+    print("-Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
+    print("-Fin de mon petit voyage, ai-je réussi ?")
     attend(1)
+    
     r.quit()
