@@ -80,4 +80,7 @@ Pour Python   : `sudo apt-get install python-imaging-tk`
 Pour Python3  : `sudo apt-get install python3-pil.imagetk`  
 
 ### Executer un fichier
-Pour executer le fichier, il suffit de faire `sudo python votreFichier.py`
+Pour executer le fichier :  
+Pour Python   : `sudo python votreFichier.py`  
+Pour Pyhton3  : `sudo python3 votreFichier.py`  
+
