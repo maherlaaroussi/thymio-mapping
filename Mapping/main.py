@@ -6,7 +6,7 @@ GPIO.setwarnings(False)
 
 
 
-scan("normal", false)
+scan("normal", False)
 
 # Clean GPIOs
 GPIO.cleanup()
