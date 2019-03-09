@@ -4,12 +4,6 @@ from ultrasonic import *
 from servomotor import *
 from math import *
 
-# GPIOs sensors
-t1 = 20
-e1 = 21
-t2 = 19
-e2 = 26
-
 # Text form
 bold = "\033[1m"
 underline = "\033[4m"
@@ -57,14 +51,14 @@ def scan(mode="fast", verbose=False) :
         rotate(angle)
 
         # 1st scan
-        c1 = distance(t1, e1)
-        c2 = distance(t2, e2)
+        c1 = distance("front")
+        c2 = distance("back")
 
         time.sleep(0.01)
 
         # 2nd scan
-        cb1 = distance(t1, e1)
-        cb2 = distance(t2, e2)
+        cb1 = distance("front")
+        cb2 = distance("back")
 
         # Selected values
         vf = min(c2, cb2) - 2

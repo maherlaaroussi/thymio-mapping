@@ -1,9 +1,22 @@
 import RPi.GPIO as GPIO
 import time
 
+# GPIOs sensors
+t1 = 20
+e1 = 21
+t2 = 19
+e2 = 26
 
 # SCAN =================================================
-def distance(t, e) :
+def distance(capteur):
+    d = 0
+    if (capteur == "front"):
+        d = dist(t1, e1)
+    elif (capteur == "back"):
+        d = dist(t2, e2)
+    return d
+
+def dist(t, e) :
 
     # Initialisation
     GPIO.setup(t, GPIO.OUT)
