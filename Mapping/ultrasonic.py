@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
+
 # SCAN =================================================
 def distance(t, e) :
 

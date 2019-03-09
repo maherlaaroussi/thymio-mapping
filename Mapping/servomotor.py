@@ -1,10 +1,12 @@
 import RPi.GPIO as GPIO
 import time
 
-def rotate(data, angle) :
+servo = 4
 
-    GPIO.setup(data, GPIO.OUT)
-    pwm = GPIO.PWM(data,100)
+def rotate(angle) :
+
+    GPIO.setup(servo, GPIO.OUT)
+    pwm = GPIO.PWM(servo,100)
 
     addAngle = 5
     ang = float(angle)

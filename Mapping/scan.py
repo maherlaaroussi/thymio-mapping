@@ -9,7 +9,6 @@ t1 = 20
 e1 = 21
 t2 = 19
 e2 = 26
-servo = 4
 
 # Text form
 bold = "\033[1m"
@@ -19,9 +18,9 @@ green = "\033[92m"
 yellow = "\033[93m"
 normal = "\033[0m"
 
-def scan(mode, verbose=False) :
+def scan(mode="fast", verbose=False) :
 
-    #Functions
+    # Verbose
     def p(text):
         if (verbose):
             print(text)
@@ -49,13 +48,13 @@ def scan(mode, verbose=False) :
 
     # For fun
     p(bold + red + "Initialisation du servo-motor ...")
-    rotate(servo, 180)
+    rotate(180)
     p(normal + "------------------------------")
 
     # Début du scan
     for i in range(int((180 / step) + 1)) :
 
-        rotate(servo, angle)
+        rotate(angle)
 
         # 1st scan
         c1 = distance(t1, e1)
@@ -84,7 +83,7 @@ def scan(mode, verbose=False) :
 
         angle = angle + step
 
-    rotate(servo, 0)
+    rotate(0)
     p(bold + "Values :")
     p(str(values))
 
