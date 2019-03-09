@@ -82,5 +82,11 @@ Pour Python3  : `sudo apt-get install python3-pil.imagetk`
 ### Executer un fichier
 Pour executer le fichier :  
 Pour Python   : `sudo python votreFichier.py`  
-Pour Pyhton3  : `sudo python3 votreFichier.py`  
+Pour Pyhton3  : `sudo python3 votreFichier.py`
 
+## Connexion SSH avec le Wifi CThymio :
+#### 1ère étape : SSH
+`ssh -2 -Y pi@10.3.141.1`
+
+#### 2e étape : Thymio
+`asebamedulla "ser:name=Thymio-II" &`
