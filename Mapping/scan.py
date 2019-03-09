@@ -19,7 +19,7 @@ green = "\033[92m"
 yellow = "\033[93m"
 normal = "\033[0m"
 
-def scan(mode, verbose) :
+def scan(mode, verbose=False) :
 
     #Functions
     def p(text):

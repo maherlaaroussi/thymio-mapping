@@ -6,7 +6,7 @@ GPIO.setwarnings(False)
 
 
 
-first = scan("normal", False)
+first = scan("fast")
 print(str(first))
 
 # Clean GPIOs
