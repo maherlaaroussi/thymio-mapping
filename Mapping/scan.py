@@ -19,7 +19,12 @@ green = "\033[92m"
 yellow = "\033[93m"
 normal = "\033[0m"
 
-def scan(mode) :
+def scan(mode, verbose) :
+
+    #Functions
+    def p(text):
+        if (verbose):
+            print(text)
 
     # Précision du scan
     if (mode == "fast"):
@@ -40,12 +45,12 @@ def scan(mode) :
     # Save
     t = str(int(time.time())) + ".txt"
     f = open("data/" + t, "w+")
-    print(bold + green + "Create file: " + t)
+    p(bold + green + "Create file: " + t)
 
     # For fun
-    print(bold + red + "Initialisation du servo-motor ...")
+    p(bold + red + "Initialisation du servo-motor ...")
     rotate(servo, 180)
-    print(normal + "------------------------------")
+    p(normal + "------------------------------")
 
     # Début du scan
     for i in range(int((180 / step) + 1)) :
@@ -72,16 +77,16 @@ def scan(mode) :
         # Stockage des données
         values.append([angle, vb, vf])
 
-        print(normal + bold + str(angle) + "°" + normal + "")
-        print(yellow + "F:" +  str(vb) + " cm \nB: " + str(vf) + " cm")
-        print(normal + "----------------------------------")
+        p(normal + bold + str(angle) + "°" + normal + "")
+        p(yellow + "F:" +  str(vb) + " cm \nB: " + str(vf) + " cm")
+        p(normal + "----------------------------------")
         time.sleep(0.01)
 
         angle = angle + step
 
     rotate(servo, 0)
-    print(bold + "Values :")
-    print(str(values))
+    p(bold + "Values :")
+    p(str(values))
 
     f.close()
 
