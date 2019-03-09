@@ -3,6 +3,7 @@
 from ultrasonic import *
 from servomotor import *
 from math import *
+import curses
 
 # Text form
 bold = "\033[1m"
