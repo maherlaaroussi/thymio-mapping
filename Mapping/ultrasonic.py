@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 # SCAN =================================================
-def scan(t, e) :
+def distance(t, e) :
 
     # Initialisation
     GPIO.setup(t, GPIO.OUT)
