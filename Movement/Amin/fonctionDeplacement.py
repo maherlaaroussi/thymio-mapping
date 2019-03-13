@@ -26,6 +26,20 @@ rotationRobot=0
 """
 Fonction de calcul
 """
+
+def getPosX():
+	return x
+
+def getPosY():
+	return y
+
+def getRotation():
+	return rotationRobot
+
+def getPosition():
+	return x,y
+
+
 def obstacle(distance1,distance2,distance3,distance4,distance5,distance6): # sert à rien
     if r.prox_horizontal[0] > distance1 or r.prox_horizontal[1] > distance2 or r.prox_horizontal[2] > distance3 or r.prox_horizontal[3] > distance4 or r.prox_horizontal[4] > distance5 or r.prox_horizontal[5] > distance6:
         r.sound_system(3)
@@ -157,9 +171,8 @@ def changerRotation(nouvelleRotation):
         tg(-tmps)
         incrementerRotationRobot(-tmps)
 
-def allerA(cordX,cordY):
+def allerA(cordX,cordY,resetRotation):
     global x,y,rotationRobot
-    tmp = rotationRobot
     if cordY > y : #on va en haut
         if cordX > x : #On va en haut à droite
 
@@ -170,7 +183,6 @@ def allerA(cordX,cordY):
             changerRotation(90)
             tg(angle)
             avancer(hypotenus)
-            changerRotation(tmp)
             x = cordX
             y = cordY
 
@@ -183,7 +195,6 @@ def allerA(cordX,cordY):
             changerRotation(270)
             td(angle)
             avancer(hypotenus)
-            changerRotation(tmp)
             x = cordX
             y = cordY
 
@@ -197,7 +208,6 @@ def allerA(cordX,cordY):
             changerRotation(90)
             td(angle)
             avancer(hypotenus)
-            changerRotation(tmp)
             x = cordX
             y = cordY
 
@@ -210,9 +220,10 @@ def allerA(cordX,cordY):
             changerRotation(270)
             tg(angle)
             avancer(hypotenus)
-            changerRotation(tmp)
             x = cordX
             y = cordY
+    if resetRotation:
+        changerRotation(0)
 
 
 
