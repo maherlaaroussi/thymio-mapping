@@ -163,13 +163,15 @@ def tg(degree):
     stop()
 
 def changerRotation(nouvelleRotation):
-    tmps = rotationRobot - nouvelleRotation
-    if tmps >=0:
-        td(tmps)
-        incrementerRotationRobot(tmps)
+    rotationGauche = abs(rotationRobot-nouvelleRotation)
+    rotationDroite = (360-rotationRobot)+nouvelleRotation
+    
+    if rotationGauche >= rotationDroite:
+        td(rotationDroite)
+    
     else:
-        tg(-tmps)
-        incrementerRotationRobot(-tmps)
+        tg(rotationGauche)
+
 
 def allerA(cordX,cordY,resetRotation):
     global x,y,rotationRobot
@@ -248,13 +250,14 @@ if __name__ == "__main__":
     attend(1)
     td(90)
     attend(1)
-    avancer(4)
+    avancer(6)
     print("-Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
     print("-Enfin, je retourne à mon point de départ et je m'arrête..\n")
     attend(1)
-    allerA(0,0)
+    allerA(0,0,True)
+    attend(1)
+    changerRotation(0)
     print("-Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
     print("-Fin de mon petit voyage, ai-je réussi ?")
-    attend(1)
-
+    attend(1)    
     r.quit()
