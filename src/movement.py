@@ -235,8 +235,8 @@ def sound(valeur):
     if valeur == "start":
         r.sound_freq()
     if valeur == "scan":
-        r.sound.system(5)
+        r.sound_system(5)
     if valeur =="stop":
-        r.sound.system(-1)
+        r.sound_system(-1)
     
 ################################################################################################################
