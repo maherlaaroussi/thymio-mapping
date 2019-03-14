@@ -6,7 +6,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 avancer(5)
-getPoxS()
+getPosX()
 print(str(scan()))
 
 
