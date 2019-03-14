@@ -227,37 +227,16 @@ def allerA(cordX,cordY,resetRotation):
     if resetRotation:
         changerRotation(0)
 
-
-
-
-#def eviterUnObstacle(distance):
-
-################################################################################################################
-if __name__ == "__main__":
-    r.sound_freq()
-    attend(1)
-    print()
-    print("###########################################################\n")
-    print("Bonjour ! Il est temps de vous montrer ma vraie puissance !\n")
-    print("###########################################################\n")
-    print("-Initialisation : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
-    print("-Commençons soft : j'avance de 5 centimètres !\n")
-    attend(1)
-    avancer(5)
-    attend(3)
-    print("-Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
-    print("-Ensuite tournons à gauche de 90 degrée(s) et avancons de 3 centimetres...\n")
-    attend(1)
-    td(90)
-    attend(1)
-    avancer(6)
-    print("-Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
-    print("-Enfin, je retourne à mon point de départ et je m'arrête..\n")
-    attend(1)
-    allerA(0,0,True)
-    attend(1)
-    changerRotation(0)
-    print("-Mes valeurs : x vaut : "+str(x)+" y vaut : "+str(y)+" et ma rotation actuelle est :"+str(rotationRobot)+" degrée(s)")
-    print("-Fin de mon petit voyage, ai-je réussi ?")
-    attend(1)    
+def quiter():
     r.quit()
+
+
+def sound(valeur):
+    if valeur == "start":
+        r.sound_freq()
+    if valeur == "scan":
+        r.sound.system(5)
+    if valeur =="stop":
+        r.sound.system(-1)
+    
+################################################################################################################
