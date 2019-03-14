@@ -43,7 +43,6 @@ def scan(mode="fast", verbose=False) :
 
     # For fun
     p(bold + red + "Initialisation du servo-motor ...")
-    rotate(180)
     p(normal + "------------------------------")
 
     # Début du scan
