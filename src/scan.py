@@ -6,7 +6,7 @@ from math import *
 import curses
 
 # Nombre de mesure de distance à chaque step
-scan = 5
+s = 5
 
 # Text form
 bold = "\033[1m"
@@ -61,7 +61,7 @@ def scan(mode="fast", verbose=False) :
 
         # DISTANCEs ----------------------------------------------
 
-        for i in range (scan):
+        for i in range (s):
             c1.append(distance("front"))
             c2.append(distance("back"))
             c3.append(distance("left"))
