@@ -27,13 +27,23 @@ def convert_cm(dist_thy):
 
 # Permet de mesurer la distance d'un obstacle
 #Capteur accepter 0 à 5
-def reperer_dist_obstacle(num_capteur):
+def reperer_dist_obstacle(num_capteur, nb_iter):
     m=0
-    for i in range(0,2): #premier boucle pour initialiser
+    nb_iter=nb_iter+1;
+    for i in range(0,nb_iter): #premier boucle pour initialiser
         m=r.prox_horizontal[num_capteur]
         time.sleep(0.5)
     print(m)
-    return convert_cm(m);
+    return convert_cm(m)
+
+def reperer_dist_obstacle_bis(num_capteur):
+    m=0
+    etat=1
+    while(etat==1):
+        m=r.prox_horizontal[num_capteur]
+        cm=convert_cm(m)
+        time.sleep(0.5)
+        print(m,cm)
 
 #Cette focntion retourne un obstacle, elle prend en argument 4 int,
 def contourner_obstacle(cdx,cdy):
