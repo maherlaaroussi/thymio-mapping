@@ -46,6 +46,9 @@ def dist(t, e) :
     pulse_duration = pulse_end - pulse_start
     distance = round(pulse_duration * 17150, 1)
 
+    if (distance > 400):
+        distance = -1
+        
     return distance
 
 # =========================================================
