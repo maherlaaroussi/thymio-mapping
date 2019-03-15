@@ -1,19 +1,20 @@
 from scan import *
-from movement import *
+#from movement import *
 
 # Mode GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-sound("start")
-avancer(5)
-print(str(getPosX()) + ":" + str(getPosY()))
+angle = 0
 
-sound("scan")
-print(str(scan()))
-
-
+for i in range(50):
+	print("F: " + str(distance("front")))
+	print("L: " + str(distance("left")))
+	print("B: " + str(distance("back")))
+	print("R: " + str(distance("right")))
+	rotate(angle)
+	print("============")
+	time.sleep(1)
+	angle = angle + 5
 # Clean GPIOs & Stop
-sound("stop")
-quit()
 GPIO.cleanup()

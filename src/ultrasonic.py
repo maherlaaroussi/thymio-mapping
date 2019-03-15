@@ -4,16 +4,23 @@ import time
 # GPIOs sensors
 t1 = 20
 e1 = 21
-t2 = 19
-e2 = 26
-
+t2 = 23
+e2 = 24
+t3 = 5
+e3 = 6
+t4 = 13
+e4 = 19
 # SCAN =================================================
 def distance(capteur):
     d = 0
-    if (capteur == "front"):
+    if (capteur == "left"):
         d = dist(t1, e1)
     elif (capteur == "back"):
         d = dist(t2, e2)
+    elif (capteur == "right"):
+        d = dist(t3, e3)
+    elif (capteur == "front"):
+        d = dist(t4, e4)
     return d
 
 def dist(t, e) :
