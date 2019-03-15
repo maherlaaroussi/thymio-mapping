@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-
 import sys
 from pythymiodw import *
 import time
 
-
 r=ThymioReal()
+
 mesure_capteur=[[0,4300],[0.5,4289],[1.0,4250],
         [1.5,4168],[2.0,3975],[2.5,3547],
         [3.0,3283],[3.5,3050],[4.0,2809],
@@ -32,6 +31,7 @@ def reperer_dist_obstacle(num_capteur):
     m=0
     for i in range(0,2): #premier boucle pour initialiser
         m=r.prox_horizontal[num_capteur]
+        time.sleep(0.5)
     print(m)
     return convert_cm(m);
 
@@ -40,5 +40,6 @@ def contourner_obstacle(cdx,cdy):
     return 1
 
 ############## Main ###############
-def main():
-    return 1
+res=reperer_dist_obstacle(2)
+print(res)
+r.quit()
