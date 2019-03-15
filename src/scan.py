@@ -5,6 +5,9 @@ from servomotor import *
 from math import *
 import curses
 
+# Nombre de mesure de distance à chaque step
+scan = 5
+
 # Text form
 bold = "\033[1m"
 underline = "\033[4m"
@@ -56,23 +59,15 @@ def scan(mode="fast", verbose=False) :
         c3 = []
         c4 = []
 
-        # 1st scan
-        c1.append(distance("front"))
-        c2.append(distance("back"))
-        c3.append(distance("left"))
-        c4.append(distance("right"))
+        # DISTANCEs ----------------------------------------------
 
-        # 2nd scan
-        c1.append(distance("front"))
-        c2.append(distance("back"))
-        c3.append(distance("left"))
-        c4.append(distance("right"))
+        for i in range (scan):
+            c1.append(distance("front"))
+            c2.append(distance("back"))
+            c3.append(distance("left"))
+            c4.append(distance("right"))
 
-        # 3th scan
-        c1.append(distance("front"))
-        c2.append(distance("back"))
-        c3.append(distance("left"))
-        c4.append(distance("right"))
+        # -------------------------------------------------
 
         # Selected values
         vf = min(c1)
