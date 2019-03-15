@@ -89,7 +89,7 @@ def scan(mode="fast", verbose=False) :
         p(normal + bold + str(angle) + "°" + normal + "")
         p(yellow + "F:" +  str(vf) + " cm\nL: " + str(vl) + " cm\nB: " + str(vb) + " cm\nR: " + str(vr) + " cm")
         p(normal + "----------------------------------")
-        time.sleep(0.0°1)
+        time.sleep(0.001)
 
         angle = angle + step
 
