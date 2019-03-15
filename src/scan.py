@@ -67,13 +67,13 @@ def scan(mode="fast", verbose=False) :
             c3.append(distance("left"))
             c4.append(distance("right"))
 
-        # -------------------------------------------------
-
         # Selected values
         vf = min(c1)
         vb = min(c2)
         vl = min(c3)
         vr = min(c4)
+
+        # -------------------------------------------------
 
         # Save data
         f.write(str(angle) + ":" + str(vf) + ":" + str(vl) + ":" + str(vb) + ":" + str(vr) + "\n")
