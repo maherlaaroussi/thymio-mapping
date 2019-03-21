@@ -73,7 +73,7 @@ def scan(mode="fast", verbose=False) :
         f.write(str(angle) + ":" + str(vf) + ":" + str(vb) + "\n")
 
         # Stockage des données
-        values.append([angle, vf, vl, vb, vr])
+        values.append([angle, vf, vb])
 
         p(normal + bold + str(angle) + "°" + normal + "")
         p(yellow + "F:" +  str(vf) + " cm\nB: " + str(vb) + " cm\n")
