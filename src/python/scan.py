@@ -76,7 +76,7 @@ def scan(mode="fast", verbose=False) :
         values.append([angle, vf, vl, vb, vr])
 
         p(normal + bold + str(angle) + "°" + normal + "")
-        p(yellow + "F:" +  str(vf) + " cm\nB: " + str(vb) + " cm\n)
+        p(yellow + "F:" +  str(vf) + " cm\nB: " + str(vb) + " cm\n")
         p(normal + "----------------------------------")
         time.sleep(0.001)
 
