@@ -173,7 +173,7 @@
 
 		$("#mapping").click(function() {
 
-			$('#blueprint').html('<img src="scan.php?filename=test" ></img>');
+			$('#image').html('<img src="scan.php?filename=test" ></img>');
 
 			/*
 			var date = new Date();
