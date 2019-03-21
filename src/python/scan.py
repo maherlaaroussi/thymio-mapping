@@ -16,7 +16,7 @@ green = "\033[92m"
 yellow = "\033[93m"
 normal = "\033[0m"
 
-def scan(mode="fast", verbose=False) :
+def scan(filename="nothing", mode="fast", verbose=False) :
 
     # Verbose
     def p(text):
@@ -40,7 +40,7 @@ def scan(mode="fast", verbose=False) :
     values = []
 
     # Save
-    t = str(int(time.time())) + ".txt"
+    t = str(filename) + ".txt"
     f = open("data/" + t, "w+")
     p(bold + green + "Create file: " + t)
 

@@ -175,8 +175,13 @@
 
 			console.log("Lancement du scan ...");
 
+			var date = new Date();
+			var timestamp = date.getTime();
+
 		$.ajax({
 			url: path,
+			type: "get"
+			data: {filename: timestamp},
 			success: function(response) {
 				console.log(response);
 				$("#blueprint").hide();
