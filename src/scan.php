@@ -12,10 +12,10 @@
   imageline($myImage, 0, 0, 500, 500, $myWhite);
 
   header( "Content-type: image/png" );
-  imagepng($myImage, $filename . ".png");
+  imagepng($myImage, "maps/" . $filename . ".png");
   header("Content-disposition: attachment; filename=" . $filename . ".png");
   header('Content-Description: File Transfer');
-  readfile("" . $filename . ".png");
+  readfile("" . "maps/" . $filename . ".png");
 
   imagedestroy($myImage);
 
