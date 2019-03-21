@@ -173,14 +173,14 @@
 
 		$("#mapping").click(function() {
 
-			console.log("Lancement du scan ...");
+			console.log("Lancement du scan ... " + timestamp);
 
 			var date = new Date();
 			var timestamp = date.getTime();
 
 		$.ajax({
 			url: path,
-			type: "get"
+			type: "get",
 			data: {filename: timestamp},
 			success: function(response) {
 				console.log(response);
