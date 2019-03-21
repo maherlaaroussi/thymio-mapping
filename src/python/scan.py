@@ -49,40 +49,34 @@ def scan(mode="fast", verbose=False) :
     p(normal + "------------------------------")
 
     # Début du scan
-    for i in range(int((90 / step) + 1)) :
+    for i in range(int((180 / step) + 1)) :
 
         rotate(angle)
 
         # For scans
         c1 = []
         c2 = []
-        c3 = []
-        c4 = []
 
         # DISTANCEs ----------------------------------------------
 
         for i in range (s):
             c1.append(distance("front"))
             c2.append(distance("back"))
-            c3.append(distance("left"))
-            c4.append(distance("right"))
 
         # Selected values
         vf = min(c1)
         vb = min(c2)
-        vl = min(c3)
-        vr = min(c4)
 
         # -------------------------------------------------
 
         # Save data
-        f.write(str(angle) + ":" + str(vf) + ":" + str(vl) + ":" + str(vb) + ":" + str(vr) + "\n")
+        f.write(str(angle) + ":" + str(vf) + ":" + str(vb) + "\n")
 
         # Stockage des données
         values.append([angle, vf, vl, vb, vr])
 
         p(normal + bold + str(angle) + "°" + normal + "")
-        p(yellow + "F:" +  str(vf) + " cm\nL: " + str(vl) + " cm\nB: " + str(vb) + " cm\nR: " + str(vr) + " cm")
+        p(yellow + "F:" +  str(vf) + " cm\nB: " + str(vb) + " cm\n)
         p(normal + "----------------------------------")
         time.sleep(0.001)
 
