@@ -185,7 +185,7 @@
 				data: {filename: timestamp},
 				success: function(response) {
 					$("#blueprint").hide();
-					$('#image').html('<img src=' + timestamp + '".png" ></img>');
+					$('#image').html('<img src="' + timestamp + '.png" ></img>');
 				}
 			});
 
