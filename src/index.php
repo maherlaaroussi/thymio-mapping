@@ -173,21 +173,25 @@
 
 		$("#mapping").click(function() {
 
-			console.log("Lancement du scan ... " + timestamp);
+			$('#blueprint').html('<img src="scan.php?filename=test" ></img>');
 
+			/*
 			var date = new Date();
 			var timestamp = date.getTime();
 
-		$.ajax({
-			url: path,
-			type: "get",
-			data: {filename: timestamp},
-			success: function(response) {
-				console.log(response);
-				$("#blueprint").hide();
-				$("#image").text(response);
-			}
-		});
+			console.log("Lancement du scan ... " + timestamp);
+
+			$.ajax({
+				url: path,
+				type: "get",
+				data: {filename: timestamp},
+				success: function(response) {
+					console.log(response);
+					$("#blueprint").hide();
+					$("#image").text(response);
+				}
+			});
+			*/
 
 		});
 
