@@ -174,9 +174,6 @@
 
 		$("#mapping").click(function() {
 
-			$('#image').html('<img src="scan.php?filename=test" ></img>');
-
-			/*
 			var date = new Date();
 			var timestamp = date.getTime();
 
@@ -187,12 +184,10 @@
 				type: "get",
 				data: {filename: timestamp},
 				success: function(response) {
-					console.log(response);
 					$("#blueprint").hide();
-					$("#image").text(response);
+					$('#image').html('<img src=' + timestamp + '".png" ></img>');
 				}
 			});
-			*/
 
 		});
 
