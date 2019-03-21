@@ -5,6 +5,7 @@ from scan import *
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+print(str(arg[1]))
 print(str(scan(arg[1])))
 
 # Clean GPIOs & Stop
