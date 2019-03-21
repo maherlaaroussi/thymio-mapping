@@ -40,6 +40,7 @@
 					</span>
 
 					<span id="image" class="login100-form-image">
+							<img id ="loading" src="" alt="Loading" hide>
 						<img id ="blueprint" src="images/mapping.jpg" alt="Mapping">
 					</span>
 
