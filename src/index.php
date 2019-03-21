@@ -40,7 +40,7 @@
 					</span>
 
 					<span id="image" class="login100-form-image">
-						<img src="images/mapping.jpg" alt="Mapping">
+						<img id ="blueprint" src="images/mapping.jpg" alt="Mapping">
 					</span>
 
 					<!--
@@ -179,6 +179,8 @@
 			url: path,
 			success: function(response) {
 				console.log(response);
+				$("#blueprint").hide();
+				$("#image").text(response);
 			}
 		});
 
