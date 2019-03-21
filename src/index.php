@@ -173,6 +173,8 @@
 
 		$("#mapping").click(function() {
 
+			console.log("Lancement du scan ...");
+
 		$.ajax({
 			url: path,
 			success: function(response) {
