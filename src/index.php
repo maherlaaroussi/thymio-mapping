@@ -167,7 +167,7 @@
 
 	<script>
 
-	const path = "script/main.py";
+	const path = "scan.php";
 
 	$(document).ready(function() {
 
