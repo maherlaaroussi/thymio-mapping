@@ -17,15 +17,19 @@
   foreach ($output[0] as $value) {
     $posX = $value[1] * cos($value[0] / 180 * pi());
     $posY = $value[2] * sin($value[0] / 180 * pi());
-    imageline($myImage, $original_x, $original_y, $posX, $posY, $myWhite);
+    echo $posX;
+    echo $posY;
+    // imageline($myImage, $original_x, $original_y, $posX, $posY, $myWhite);
   }
+
+  /*
 
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
   header("Content-disposition: attachment; filename=" . $filename . ".png");
   header('Content-Description: File Transfer');
   readfile("" . $filename . ".png");
-
+  */
   imagedestroy($myImage);
 
 ?>
