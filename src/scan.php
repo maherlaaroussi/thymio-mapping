@@ -19,7 +19,7 @@
     $posXF = $value[1] * cos($value[0] / 180 * pi());
     $posXF = round($posXF, 2);
     $posYF = $value[1] * sin($value[0] / 180 * pi());
-    $posYF = round($posXF, 2);
+    $posYF = round($posYF, 2);
     imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite);
 
     $posXB = $value[2] * cos(($value[0] + 180) / 180 * pi());
@@ -29,13 +29,12 @@
     imageline($myImage, $original_x, $original_y, $posXB, $posYB, $myWhite);
 
   }
-/*
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
   header("Content-disposition: attachment; filename=" . $filename . ".png");
   header('Content-Description: File Transfer');
   readfile("" . $filename . ".png");
-*/
+
   imagedestroy($myImage);
 
 ?>
