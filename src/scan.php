@@ -20,14 +20,12 @@
     imageline($myImage, $original_x, $original_y, $posX, $posY, $myWhite);
   }
 
-  /*
-
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
   header("Content-disposition: attachment; filename=" . $filename . ".png");
   header('Content-Description: File Transfer');
   readfile("" . $filename . ".png");
-  */
+  
   imagedestroy($myImage);
 
 ?>
