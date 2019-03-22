@@ -16,6 +16,7 @@
   $handle = fopen("data/" . filename . ".txt", "r");
   $values = "";
 
+  /*
   if ($handle) {
     while (($line = fgets($handle)) !== false) {
       $values = explode(":", $line);
@@ -27,6 +28,7 @@
 
   } else {
   }
+  */
 
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
