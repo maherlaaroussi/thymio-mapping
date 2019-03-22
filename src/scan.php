@@ -12,6 +12,8 @@
   $myBlack = imagecolorallocate($myImage, 0, 0, 0);
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
 
+  echo unserialize($output);
+
   $output = explode(",", $output);
   print_r($output);
 
