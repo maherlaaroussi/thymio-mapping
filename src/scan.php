@@ -25,7 +25,7 @@
   fclose($handle);
 
   } else {
-      imageline($myImage, $original_x, $original_y, 200, 200, $myWhite);
+      // imageline($myImage, $original_x, $original_y, 200, 200, $myWhite);
   }
 
   header( "Content-type: image/png" );
