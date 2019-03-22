@@ -14,7 +14,7 @@
 
   $output = json_decode($output);
 
-  foreach ($output[0] as $value) {
+  foreach ($output as $value) {
     $posX = $value[1] * cos($value[0] / 180 * pi());
     $posY = $value[2] * sin($value[0] / 180 * pi());
     echo $posX;
