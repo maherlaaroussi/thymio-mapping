@@ -15,9 +15,13 @@
   $output = json_decode($output);
 
   foreach ($output as $value) {
-    $posX = $value[1] * cos($value[0] / 180 * pi());
-    $posY = $value[2] * sin($value[0] / 180 * pi());
-    imageline($myImage, $original_x, $original_y, $posX, $posY, $myWhite);
+    $posXF = $value[1] * cos($value[0] / 180 * pi());
+    $posYF = $value[1] * sin($value[0] / 180 * pi());
+    imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite);
+
+    $posXB = $value[2] * cos(()$value[0] + 180) / 180 * pi());
+    $posYB = $value[2] * sin(($value[0] + 180) / 180 * pi());
+    imageline($myImage, $original_x, $original_y, $posXB, $posYB, $myWhite);
   }
 
   header( "Content-type: image/png" );
@@ -25,7 +29,7 @@
   header("Content-disposition: attachment; filename=" . $filename . ".png");
   header('Content-Description: File Transfer');
   readfile("" . $filename . ".png");
-  
+
   imagedestroy($myImage);
 
 ?>
