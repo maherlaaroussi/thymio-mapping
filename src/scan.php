@@ -18,8 +18,8 @@
   if ($handle) {
     while (($line = fgets($handle)) !== false) {
       $values = explode(":", $line);
-      $posX = $values[1] * cos(($values[0] + 180) / 180 * pi())
-      $posY = $values[2] * sin(($values[0] + 180) / 180 * pi())
+      $posX = 100; // $values[1] * cos($values[0] / 180 * pi())
+      $posY = 200; // $values[2] * sin($values[0] / 180 * pi())
       imageline($myImage, $original_x, $original_y, $posX, $posY, $myWhite);
     }
   fclose($handle);
