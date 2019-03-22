@@ -17,9 +17,7 @@
   foreach ($output as $value) {
     $posX = $value[1] * cos($value[0] / 180 * pi());
     $posY = $value[2] * sin($value[0] / 180 * pi());
-    echo $posX;
-    echo $posY;
-    // imageline($myImage, $original_x, $original_y, $posX, $posY, $myWhite);
+    imageline($myImage, $original_x, $original_y, $posX, $posY, $myWhite);
   }
 
   /*
