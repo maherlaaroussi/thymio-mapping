@@ -159,11 +159,11 @@ def allerANaif(cordX,cordY,resetPosition):
             avancer(abs(cordX-x))
             x = cordX
             y = cordY
-        
+
     if resetPosition == True:
         changerRotation(0)
-    
-    
+
+
 
 ################################################################################################################s
 """
@@ -202,20 +202,20 @@ def tg(degree):
     stop()
 
 def changerRotation(nouvelleRotation):
-    
-    if nouvelleRotation <= rotationRobot:        
-        
+
+    if nouvelleRotation <= rotationRobot:
+
         rotationGauche = abs(rotationRobot-nouvelleRotation)
         rotationDroite = (360-rotationRobot)+nouvelleRotation
 
     else:
-        
+
         rotationGauche = (360-rotationRobot)+nouvelleRotation
         rotationDroite = abs(rotationRobot-nouvelleRotation)
 
     if rotationGauche >= rotationDroite:
         td(rotationDroite)
-    
+
     else:
         tg(rotationGauche)
 
@@ -272,11 +272,11 @@ def allerA(cordX,cordY,resetRotation):
             avancer(hypotenus)
             x = cordX
             y = cordY
-    
+
     if resetRotation:
         changerRotation(0)
-  
-    
+
+
 
 def quitter():
     r.quit()
@@ -289,6 +289,5 @@ def sound(valeur):
         r.sound_system(5)
     if valeur =="stop":
         r.sound_system(-1)
-    
-################################################################################################################
 
+################################################################################################################

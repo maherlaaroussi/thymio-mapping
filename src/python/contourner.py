@@ -1,118 +1,12 @@
 # -*- coding: utf-8 -*-
+from movement import *
 import sys
 from pythymiodw import *
 import time
 
-r=ThymioReal()
-vitesseG = 200
-vitesseD = 200
-tempsRotation = 0.0133
-tempsAvancer = 6.5
-x= 0
-y= 0
-rotationRobot=0
-
-############# MOUVEMENT ###########
-
-def avancer(distance):
-    r.wheels(vitesseG,vitesseD)
-    calculTempsAvancement(distance)
-    r.wheels(0,0)
-    distanceParcourue(distance)
 
 
-def reculer(distance):
-    r.wheels(-vitesseG,-vitesseD)
-    calculTempsAvancement(distance-0.05)
-    distanceParcourue(-distance)
-
-def stop():
-    r.wheels(0,0)
-
-def attend(secondes):
-    time.sleep(secondes)
-
-def td(degree):
-    r.wheels(vitesseG,-vitesseD)
-    calculTempsRotation(degree)
-    incrementerRotationRobot(degree)
-    stop()
-
-
-def tg(degree):
-    r.wheels(-vitesseG,vitesseD)
-    calculTempsRotation(degree) # 1 sec = presque 180 --> supp a 180
-    incrementerRotationRobot(-degree)
-    stop()
-
-def changerRotation(nouvelleRotation):
-    rotationGauche = abs(rotationRobot-nouvelleRotation)
-    rotationDroite = (360-rotationRobot)+nouvelleRotation
-
-    if rotationGauche >= rotationDroite:
-        td(rotationDroite)
-
-    else:
-        tg(rotationGauche)
-
-
-def allerA(cordX,cordY,resetRotation):
-    global x,y,rotationRobot
-    if cordY > y : #on va en haut
-        if cordX > x : #On va en haut à droite
-
-            coteAdjacent = abs(cordX - x)
-            coteOppose   = abs(cordY - y)
-            hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle = m.acos(coteAdjacent/hypotenus)*180/m.pi
-            changerRotation(90)
-            tg(angle)
-            avancer(hypotenus)
-            x = cordX
-            y = cordY
-
-        if cordX < x: #On va en haut à gauche
-
-            coteAdjacent = abs(x - cordX)
-            coteOppose   = abs(cordY - y)
-            hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle = m.acos(coteAdjacent/hypotenus)*180/m.pi
-            changerRotation(270)
-            td(angle)
-            avancer(hypotenus)
-            x = cordX
-            y = cordY
-
-    if cordY < y: #On va en bas
-        if cordX > x: #On va en bas à droite
-
-            coteAdjacent = abs(cordX - x)
-            coteOppose   = abs(y - cordY)
-            hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle        = m.acos(coteAdjacent/hypotenus)*180/m.pi
-            changerRotation(90)
-            td(angle)
-            avancer(hypotenus)
-            x = cordX
-            y = cordY
-
-        if cordX < x: #On va en bas à gauche
-            coteAdjacent = abs(x - cordX)
-            coteOppose   = abs(cordY - y)
-            hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle        = m.acos(coteAdjacent/hypotenus)*180/m.pi
-            print("-coté adjacent : "+str(coteAdjacent)+" cote oppose : "+str(coteOppose)+" hypo : "+str(hypotenus)+" angle : " +str(angle))
-            changerRotation(270)
-            tg(angle)
-            avancer(hypotenus)
-            x = cordX
-            y = cordY
-    if resetRotation:
-        changerRotation(0)
-
-def quitter():
-    r.quit()
-
+r = ThymioReal()
 ############ COUTOURNER ###############
 
 mesure_capteur=[[0,4300],[0.5,4289],[1.0,4250],
@@ -227,8 +121,12 @@ def GAUCHE():
 #par la droite si possible sinon par la gauche.
 #assurer que le capteur le plus a droite et a gauche n'a aps dobstale trop prche pour contourne
 def contourner_obstacle():
+    while(obstacle_existe(2)==0):
+        avancer(2)
     distance_obstacle=reperer_dist_obstacle(2, 1)
-    avancer(distance_obstacle-3)#Avancer jusqu'a 3cm de l'ostacle
+    dinst_3=distance_obstacle-3
+    avancer(dinst_3)#Avancer jusqu'a 3cm de l'ostacle
+"""
     impossible=False
     objectif=False
     while(reussite != True and objectif != True):
@@ -243,7 +141,7 @@ def contourner_obstacle():
                     if(GAUCHE()==True):
                         rg(180)
                         objectif=True
-                    elif:
+                    elif(GAUCHE()==False):
                         impossible=True
                         DROITE()
                     else:
@@ -263,7 +161,7 @@ def contourner_obstacle():
         return True
     else:
         return False
-
+"""
 
 ############## Main ###############
 contourner_obstacle()
