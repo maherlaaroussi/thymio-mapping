@@ -11,23 +11,23 @@
 
   $myBlack = imagecolorallocate($myImage, 0, 0, 0);
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
-  /*
+
   $handle = fopen("data/" . filename . ".txt", "r");
   $values = "";
 
   if ($handle) {
     while (($line = fgets($handle)) !== false) {
       $values = explode(":", $line);
-      $x = $values[1] * cos(($values[0] + 180) / 180. * pi())
-      $y = $values[2] * sin(($values[0] + 180) / 180. * pi())
-      imageline($myImage, $original_x, $original_y, $x, $y, $myWhite);
+      /* $x = $values[1] * cos(($values[0] + 180) / 180. * pi()) */
+      /* $y = $values[2] * sin(($values[0] + 180) / 180. * pi()) */
+      imageline($myImage, $original_x, $original_y, $values[2], $values[1], $myWhite);
     }
   fclose($handle);
 
   } else {
       imageline($myImage, $original_x, $original_y, 200, 200, $myWhite);
   }
-  */
+
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
   header("Content-disposition: attachment; filename=" . $filename . ".png");
