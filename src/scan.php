@@ -12,10 +12,8 @@
   $myBlack = imagecolorallocate($myImage, 0, 0, 0);
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
 
-  echo serialize($output);
-
-  $output = explode(",", $output);
-  print_r($output);
+  $output = json_decode($output);
+  echo $output;
 
   /*
   $handle = fopen("data/" . filename . ".txt", "r");
@@ -35,14 +33,13 @@
   } else {
       // imageline($myImage, $original_x, $original_y, 200, 200, $myWhite);
   }
+  */
 
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
   header("Content-disposition: attachment; filename=" . $filename . ".png");
   header('Content-Description: File Transfer');
   readfile("" . $filename . ".png");
-
-  */
 
   imagedestroy($myImage);
 
