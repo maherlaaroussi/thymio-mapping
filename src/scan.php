@@ -16,27 +16,22 @@
 
   foreach ($output as $value) {
 
-    $posXF = $value[1] * cos($value[0] / 180 * pi());
-    $posYF = $value[1] * sin($value[0] / 180 * pi());
-    echo round($posXF, 2);
-    echo round($posYF, 2);
-    //imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite);
-    echo "OK";
+    $posXF = round($value[1] * cos($value[0] / 180 * pi()), 2);
+    $posYF = round($value[1] * sin($value[0] / 180 * pi())), 2;
+    imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite);
 
-    $posXB = $value[2] * cos(($value[0] + 180) / 180 * pi());
-    $posYB = $value[2] * sin(($value[0] + 180) / 180 * pi());
-    echo round($posXB, 2);
-    echo round($posYB, 2);
-    //imageline($myImage, $original_x, $original_y, $posXB, $posYB, $myWhite);
+    $posXB = round($value[2] * cos(($value[0] + 180) / 180 * pi()), 2);
+    $posYB = round($value[2] * sin(($value[0] + 180) / 180 * pi()), 2);
+    imageline($myImage, $original_x, $original_y, $posXB, $posYB, $myWhite);
 
   }
-/*
+
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
   header("Content-disposition: attachment; filename=" . $filename . ".png");
   header('Content-Description: File Transfer');
   readfile("" . $filename . ".png");
-*/
+
   imagedestroy($myImage);
 
 ?>
