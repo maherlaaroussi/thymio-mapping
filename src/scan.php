@@ -4,6 +4,7 @@
   $size = 600;
   $original_x = $size / 2;
   $original_y = $size / 2;
+  $resize = 2;
 
   $output = exec("sudo /usr/bin/python3 /var/www/html/python/main.py " .  $filename);
 
@@ -16,15 +17,15 @@
 
   foreach ($output as $value) {
 
-    $posXF = $value[1] * cos($value[0] / 180 * pi());
+    $posXF = $value[1] * $resize * cos($value[0] / 180 * pi());
     $posXF = $original_x + round($posXF, 2);
-    $posYF = $value[1] * sin($value[0] / 180 * pi());
+    $posYF = $value[1] * $resize * sin($value[0] / 180 * pi());
     $posYF = $original_y + round($posYF, 2);
     imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite);
 
-    $posXB = $value[2] * cos(($value[0] + 180) / 180 * pi());
+    $posXB = $value[2] * $resize * cos(($value[0] + 180) / 180 * pi());
     $posXB = $original_x + round($posXB, 2);
-    $posYB = $value[2] * sin(($value[0] + 180) / 180 * pi());
+    $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
     $posYB = $original_y + round($posYB, 2);
     imageline($myImage, $original_x, $original_y, $posXB, $posYB, $myWhite);
 
