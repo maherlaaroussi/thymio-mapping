@@ -4,7 +4,7 @@
   $size = 600;
   $original_x = $size / 2;
   $original_y = $size / 2;
-  $resize = 5;
+  $resize = 4;
 
   $output = exec("sudo /usr/bin/python3 /var/www/html/python/main.py " .  $filename);
 
@@ -12,6 +12,7 @@
 
   $myBlack = imagecolorallocate($myImage, 0, 0, 0);
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
+  imagesetthickness($myImage, 2);
 
   $output = json_decode($output);
 
