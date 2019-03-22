@@ -13,7 +13,7 @@ y= 0
 rotationRobot=0
 
 ############# MOUVEMENT ###########
-    
+
 def avancer(distance):
     r.wheels(vitesseG,vitesseD)
     calculTempsAvancement(distance)
@@ -48,10 +48,10 @@ def tg(degree):
 def changerRotation(nouvelleRotation):
     rotationGauche = abs(rotationRobot-nouvelleRotation)
     rotationDroite = (360-rotationRobot)+nouvelleRotation
-    
+
     if rotationGauche >= rotationDroite:
         td(rotationDroite)
-    
+
     else:
         tg(rotationGauche)
 
@@ -114,7 +114,7 @@ def quitter():
     r.quit()
 
 ############ COUTOURNER ###############
-    
+
 mesure_capteur=[[0,4300],[0.5,4289],[1.0,4250],
         [1.5,4168],[2.0,3975],[2.5,3547],
         [3.0,3283],[3.5,3050],[4.0,2809],
@@ -125,7 +125,7 @@ mesure_capteur=[[0,4300],[0.5,4289],[1.0,4250],
         [10.5,0]]
 
 
-#convertie mesure thymio en cm 
+#convertie mesure thymio en cm
 def convert_cm(dist_thy):
     i=0
     for i in range (0,22):
@@ -170,62 +170,100 @@ def obstacle_existe(num_capteur):
         return 0
     else:
         return 1
-    
 
-#Cette focntion retourne un obstacle, elle prend en argument 4 int,
-def contourner_obstacle(cdx,cdy):
-    droite_possible=1
-    gauche_possible=0
-    distance=0
-    nc0=0 #capteur 0
-    nc1=1
-    nc2=2
-    nc4=4
-    x=0 #traceur
-    y=0 #traceur
-    distance_obs=reperer_dist_obstacle(2,1)
-    
-    if(distance_obs > 3.0):#Se positionner a 3 cm de l'obstacle
-        distance=distance_obs-3
-        avancer(distance)
-    else:
-        distance= 3-distance_obs
-        reculer(distance)
-    while (obstacle_existe(nc2) == 1):
-        if(droite_possible==1):
-            td(90)
-            if(obstacle_existe(nc2) == 0):
-                distance=5
-                avancer(distance)
-                x=x+5
-                tg(90)
-                return (x,y)
-            else:
-                x=0
-                #aller à x=0
-                droite_possible=0
-                gauche_possible=1
-        elif (gauche_possible==1):
+
+def DROITE():
+    reussite=0
+    cp0=0
+    cp1=1
+    cp2=2
+    cp3=3
+    while(reussite == 0):
+        td(90)
+        if(obstacle_existe==1):
             tg(90)
-            if(obstacle_existe(nc2)==0):
-                distance=5
-                avancer(distance)
-                x=x-5
-                td(90)
-                return ()
-            else: 
-                x=0
-                #aller à x=0
-                tg(90)
-                droite_possible=0
-                gauche_possible=0
+            return False
         else:
-            print("Obstacle introuvable")
-            #revenir pos initial
-            return(x,y)
-                
-            
-  
+            avancer(5)
+            x=x+5
+            tg(90)
+            if(obstacle_existe==0):
+                avancer(5)
+                y=y+5
+                tg(90)
+                reussite=True
+                return True
+            else:
+                allerA(0,0,True) #retour a la position initial avec rotation initialiser
+                return False
+
+def GAUCHE():
+    reussite=0
+    cp0=0
+    cp1=1
+    cp2=2
+    cp3=3
+    while(reussite == 0):
+        tg(90)
+        if(obstacle_existe==1):
+            td(90)
+            return False
+        else:
+            avancer(5)
+            y=y+5
+            td(90)
+            if(obstacle_existe==0):
+                avancer(5)
+                x=x+5
+                td(90)
+                reussite=True
+                return True
+            else:
+                allerA(0,0,True) #retour a la position initial avec rotation initialiser
+                return False
+
+
+#Cette methode permet dans un premeir temps de detecter un obstacle, puis de l'evite et le contourner_obstacle
+#par la droite si possible sinon par la gauche.
+#assurer que le capteur le plus a droite et a gauche n'a aps dobstale trop prche pour contourne
+def contourner_obstacle():
+    distance_obstacle=reperer_dist_obstacle(2, 1)
+    avancer(distance_obstacle-3)#Avancer jusqu'a 3cm de l'ostacle
+    impossible=False
+    objectif=False
+    while(reussite != True and objectif != True):
+        if(DROITE() == True):
+            if(DROITE() == True):
+                td(180)
+                objectif=True
+            else:
+                GAUCHE()
+                y=y-10
+                if(GAUCHE()==True):
+                    if(GAUCHE()==True):
+                        rg(180)
+                        objectif=True
+                    elif:
+                        impossible=True
+                        DROITE()
+                    else:
+                        impossible=True
+        else:
+            if(GAUCHE() == True):
+                if(GAUCHE() == True):
+                    tg(180)
+                    objectif=True
+                else:
+                    impossible=True
+                    DROITE()
+                    y=y-10
+            else:
+                impossible=True
+    if(impossible==False and objectif==True):
+        return True
+    else:
+        return False
+
 
 ############## Main ###############
 
