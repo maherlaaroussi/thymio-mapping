@@ -13,7 +13,7 @@
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
 
   $output = explode(",", $output);
-  echo $output;
+  print_r $output;
 
   /*
   $handle = fopen("data/" . filename . ".txt", "r");
