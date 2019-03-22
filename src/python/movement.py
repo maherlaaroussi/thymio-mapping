@@ -124,7 +124,46 @@ def incrementerRotationRobot(degree):
 
     rotationRobot = tmp
 
+def allerANaif(cordX,cordY,resetPosition):
+    global x,y,rotationRobot
+    if cordY > y : #on va en haut
+        if cordX > x : #On va en haut à droite
+            changerRotation(0)
+            avancer(abs(cordY-y))
+            td(90)
+            avancer(abs(cordX-x))
+            x = cordX
+            y = cordY
 
+        if cordX < x: #On va en haut à gauche
+            changerRotation(0)
+            avancer(abs(cordY-y))
+            tg(90)
+            avancer(abs(cordX-x))
+            x = cordX
+            y = cordY
+
+    if cordY < y: #On va en bas
+        if cordX > x: #On va en bas à droite
+            changerRotation(180)
+            avancer(abs(cordY-y))
+            tg(90)
+            avancer(abs(cordX-x))
+            x = cordX
+            y = cordY
+
+        if cordX < x: #On va en bas à gauche
+            changerRotation(180)
+            avancer(abs(cordY-y))
+            td(90)
+            avancer(abs(cordX-x))
+            x = cordX
+            y = cordY
+        
+    if resetPosition == True:
+        changerRotation(0)
+    
+    
 
 ################################################################################################################s
 """
@@ -163,9 +202,17 @@ def tg(degree):
     stop()
 
 def changerRotation(nouvelleRotation):
-    rotationGauche = abs(rotationRobot-nouvelleRotation)
-    rotationDroite = (360-rotationRobot)+nouvelleRotation
     
+    if nouvelleRotation <= rotationRobot:        
+        
+        rotationGauche = abs(rotationRobot-nouvelleRotation)
+        rotationDroite = (360-rotationRobot)+nouvelleRotation
+
+    else:
+        
+        rotationGauche = (360-rotationRobot)+nouvelleRotation
+        rotationDroite = abs(rotationRobot-nouvelleRotation)
+
     if rotationGauche >= rotationDroite:
         td(rotationDroite)
     
@@ -178,10 +225,11 @@ def allerA(cordX,cordY,resetRotation):
     if cordY > y : #on va en haut
         if cordX > x : #On va en haut à droite
 
-            coteAdjacent = abs(cordX - x)
-            coteOppose   = abs(cordY - y)
-            hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle = m.acos(coteAdjacent/hypotenus)*180/m.pi
+            coteOppose     = abs(cordX - x)
+            coteAdjacent   = abs(cordY - y)
+            hypotenus      = m.hypot(coteAdjacent,coteOppose)
+            angle          = m.degrees(m.acos(coteOppose/hypotenus))
+            print(angle,hypotenus,coteOppose,coteAdjacent)
             changerRotation(90)
             tg(angle)
             avancer(hypotenus)
@@ -190,11 +238,11 @@ def allerA(cordX,cordY,resetRotation):
 
         if cordX < x: #On va en haut à gauche
 
-            coteAdjacent = abs(x - cordX)
-            coteOppose   = abs(cordY - y)
+            coteOppose   = abs(x - cordX)
+            coteAdjacent = abs(cordY - y)
             hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle = m.acos(coteAdjacent/hypotenus)*180/m.pi
-            changerRotation(270)
+            angle = m.degrees(m.acos(coteOppose/hypotenus))
+            changerRotation(90)
             td(angle)
             avancer(hypotenus)
             x = cordX
@@ -203,29 +251,32 @@ def allerA(cordX,cordY,resetRotation):
     if cordY < y: #On va en bas
         if cordX > x: #On va en bas à droite
 
-            coteAdjacent = abs(cordX - x)
-            coteOppose   = abs(y - cordY)
-            hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle        = m.acos(coteAdjacent/hypotenus)*180/m.pi
-            changerRotation(90)
-            td(angle)
-            avancer(hypotenus)
-            x = cordX
-            y = cordY
-
-        if cordX < x: #On va en bas à gauche
-            coteAdjacent = abs(x - cordX)
-            coteOppose   = abs(cordY - y)
-            hypotenus    = m.hypot(coteAdjacent,coteOppose)
-            angle        = m.acos(coteAdjacent/hypotenus)*180/m.pi
-            print("-coté adjacent : "+str(coteAdjacent)+" cote oppose : "+str(coteOppose)+" hypo : "+str(hypotenus)+" angle : " +str(angle))
+            coteOppose     = abs(cordX - x)
+            coteAdjacent   = abs(y - cordY)
+            hypotenus      = m.hypot(coteAdjacent,coteOppose)
+            angle          = m.degrees(m.acos(coteOppose/hypotenus))
             changerRotation(270)
             tg(angle)
             avancer(hypotenus)
             x = cordX
             y = cordY
+
+        if cordX < x: #On va en bas à gauche
+            coteOppose     = abs(x - cordX)
+            coteAdjacent   = abs(cordY - y)
+            hypotenus      = m.hypot(coteAdjacent,coteOppose)
+            angle          = m.degrees(m.acos(coteOppose/hypotenus))
+            print(angle,hypotenus,coteOppose,coteAdjacent)
+            changerRotation(180)
+            td(angle)
+            avancer(hypotenus)
+            x = cordX
+            y = cordY
+    
     if resetRotation:
         changerRotation(0)
+  
+    
 
 def quiter():
     r.quit()
@@ -240,3 +291,14 @@ def sound(valeur):
         r.sound_system(-1)
     
 ################################################################################################################
+if __name__ == "__main__":
+    r.sound_freq()
+    allerANaif(3,3,False)
+    print(x,y,rotationRobot)
+    attend(1)
+    allerANaif(9,4,False)
+    print(x,y,rotationRobot)
+    attend(1)
+    allerANaif(0,0,True)
+    print(x,y,rotationRobot)
+    r.quit()
