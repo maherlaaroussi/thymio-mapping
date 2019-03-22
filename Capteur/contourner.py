@@ -266,9 +266,9 @@ def contourner_obstacle():
 
 
 ############## Main ###############
-
-num_capteur=2
-nb_iter=1
-reperer_dist_obstacle_bis(num_capteur)
+contourner_obstacle()
+#num_capteur=2
+#nb_iter=1
+#reperer_dist_obstacle_bis(num_capteur)
 #reperer_dist_obstacle_bis(num_capteur)
 quitter()
