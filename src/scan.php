@@ -13,7 +13,7 @@
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
 
   $output = json_decode($output);
-  echo $output;
+  print_r($output);
 
   /*
   $handle = fopen("data/" . filename . ".txt", "r");
@@ -41,7 +41,7 @@
   readfile("" . $filename . ".png");
 
   */
-  
+
   imagedestroy($myImage);
 
 ?>
