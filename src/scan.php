@@ -11,8 +11,7 @@
 
   $myBlack = imagecolorallocate($myImage, 0, 0, 0);
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
-
-  /* Read values */
+  /*
   $handle = fopen("data/" . filename . ".txt", "r");
   $values = "";
 
@@ -28,7 +27,7 @@
   } else {
       imageline($myImage, $original_x, $original_y, 200, 200, $myWhite);
   }
-
+  */
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
   header("Content-disposition: attachment; filename=" . $filename . ".png");
