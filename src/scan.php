@@ -33,7 +33,6 @@
   } else {
       // imageline($myImage, $original_x, $original_y, 200, 200, $myWhite);
   }
-  */
 
   header( "Content-type: image/png" );
   imagepng($myImage, $filename . ".png");
@@ -41,6 +40,8 @@
   header('Content-Description: File Transfer');
   readfile("" . $filename . ".png");
 
+  */
+  
   imagedestroy($myImage);
 
 ?>
