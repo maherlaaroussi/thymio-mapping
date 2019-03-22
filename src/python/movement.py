@@ -291,14 +291,4 @@ def sound(valeur):
         r.sound_system(-1)
     
 ################################################################################################################
-if __name__ == "__main__":
-    r.sound_freq()
-    allerANaif(3,3,False)
-    print(x,y,rotationRobot)
-    attend(1)
-    allerANaif(9,4,False)
-    print(x,y,rotationRobot)
-    attend(1)
-    allerANaif(0,0,True)
-    print(x,y,rotationRobot)
-    r.quit()
+
