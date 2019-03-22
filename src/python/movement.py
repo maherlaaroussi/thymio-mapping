@@ -278,7 +278,7 @@ def allerA(cordX,cordY,resetRotation):
   
     
 
-def quiter():
+def quitter():
     r.quit()
 
 
