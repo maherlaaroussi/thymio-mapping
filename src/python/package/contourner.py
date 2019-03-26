@@ -4,6 +4,7 @@ from pythymiodw import *
 import time
 
 r = ThymioReal()
+
 ############ COUTOURNER ###############
 
 mesure_capteur=[[0,4300],[0.5,4289],[1.0,4250],
@@ -112,50 +113,3 @@ def GAUCHE():
             else:
                 allerA(0,0,True) #retour a la position initial avec rotation initialiser
                 return False
-
-
-#Cette methode permet dans un premeir temps de detecter un obstacle, puis de l'evite et le contourner_obstacle
-#par la droite si possible sinon par la gauche.
-#assurer que le capteur le plus a droite et a gauche n'a aps dobstale trop prche pour contourne
-def contourner_obstacle():
-    while(obstacle_existe(2)==0):
-        avancer(2)
-    distance_obstacle=reperer_dist_obstacle(2, 1)
-    dinst_3=distance_obstacle-3
-    avancer(dinst_3)#Avancer jusqu'a 3cm de l'ostacle
-"""
-    impossible=False
-    objectif=False
-    while(reussite != True and objectif != True):
-        if(DROITE() == True):
-            if(DROITE() == True):
-                td(180)
-                objectif=True
-            else:
-                GAUCHE()
-                y=y-10
-                if(GAUCHE()==True):
-                    if(GAUCHE()==True):
-                        rg(180)
-                        objectif=True
-                    elif(GAUCHE()==False):
-                        impossible=True
-                        DROITE()
-                    else:
-                        impossible=True
-        else:
-            if(GAUCHE() == True):
-                if(GAUCHE() == True):
-                    tg(180)
-                    objectif=True
-                else:
-                    impossible=True
-                    DROITE()
-                    y=y-10
-            else:
-                impossible=True
-    if(impossible==False and objectif==True):
-        return True
-    else:
-        return False
-"""
