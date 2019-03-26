@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-from movement import *
 import sys
 from pythymiodw import *
 import time
-
-
 
 r = ThymioReal()
 ############ COUTOURNER ###############
@@ -162,11 +159,3 @@ def contourner_obstacle():
     else:
         return False
 """
-
-############## Main ###############
-contourner_obstacle()
-#num_capteur=2
-#nb_iter=1
-#reperer_dist_obstacle_bis(num_capteur)
-#reperer_dist_obstacle_bis(num_capteur)
-quitter()

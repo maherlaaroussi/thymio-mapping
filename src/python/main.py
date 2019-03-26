@@ -1,6 +1,6 @@
-from scan import *
+from package.scan import *
 import sys
-#from movement import *
+#from package.movement import *
 
 # Mode GPIO
 GPIO.setmode(GPIO.BCM)
