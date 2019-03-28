@@ -36,8 +36,11 @@ def dist(t, e) :
     time.sleep(0.01)
 
     # Calculs
-    pulse_duration = pulse_end - pulse_start
-    distance = round(pulse_duration * 17150, 1)
+    try:
+        pulse_duration = pulse_end - pulse_start
+        distance = round(pulse_duration * 17150, 1)
+    except:
+        distance = -1
 
     if (distance > 400):
         distance = -1
