@@ -17,20 +17,34 @@
 
   $output = json_decode($output);
 
+  $i = 0;
+  $xF_old = 0;
+  $yF_old = 0;
+  $xB_old = 0;
+  $yB_old = 0;
+
   foreach ($output as $value) {
 
+    $xF_old = $posXF;
+    $yF_old = $posYF;
     $posXF = $value[1] * $resize * cos($value[0] / 180 * pi());
     $posXF = $original_x + round($posXF, 2);
     $posYF = $value[1] * $resize * sin($value[0] / 180 * pi());
     $posYF = $original_y + round($posYF, 2);
 
+    $xB_old = $posXB;
+    $yB_old = $posYB;
     $posXB = $value[2] * $resize * cos(($value[0] + 180) / 180 * pi());
     $posXB = $original_x + round($posXB, 2);
     $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
     $posYB = $original_y + round($posYB, 2);
 
-    /* imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite); */
-    imageline($myImage, $posXF, $posYF, $posXB, $posYB, $myWhite);
+    if ($i != 0) {
+      imageline($myImage, $xF_old, $yF_old, $posXF, $posYF, $myWhite);
+      imageline($myImage, $xB_old, $yB_old, $posXB, $posYB, $myWhite);
+    }
+
+    $i++;
 
   }
 
