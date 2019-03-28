@@ -29,7 +29,7 @@
     $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
     $posYB = $original_y + round($posYB, 2);
 
-    //imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite);
+    /* imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite); */
     imageline($myImage, $posXF, $posYF, $posXB, $posYB, $myWhite);
 
   }
