@@ -1,6 +1,7 @@
 <?php
 
   $filename = $_GET['filename'];
+  $path_image = "maps/" . $filename . ".png";
   $size = 400;
   $original_x = $size / 2;
   $original_y = $size / 2;
@@ -33,10 +34,10 @@
   }
 
   header( "Content-type: image/png" );
-  imagepng($myImage, $filename . ".png");
-  header("Content-disposition: attachment; filename=" . $filename . ".png");
+  imagepng($myImage, $path_image);
+  header("Content-disposition: attachment; filename=" . $path_image);
   header('Content-Description: File Transfer');
-  readfile("" . $filename . ".png");
+  readfile("" . $filename);
 
   imagedestroy($myImage);
 
