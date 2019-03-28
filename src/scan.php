@@ -1,7 +1,7 @@
 <?php
 
   $filename = $_GET['filename'];
-  $path_image = "/var/www/html/maps/" . $filename . ".png";
+  $path_image = $filename . ".png";
   $size = 400;
   $original_x = $size / 2;
   $original_y = $size / 2;
@@ -23,13 +23,14 @@
     $posXF = $original_x + round($posXF, 2);
     $posYF = $value[1] * $resize * sin($value[0] / 180 * pi());
     $posYF = $original_y + round($posYF, 2);
-    imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite);
 
     $posXB = $value[2] * $resize * cos(($value[0] + 180) / 180 * pi());
     $posXB = $original_x + round($posXB, 2);
     $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
     $posYB = $original_y + round($posYB, 2);
-    imageline($myImage, $original_x, $original_y, $posXB, $posYB, $myWhite);
+
+    //imageline($myImage, $original_x, $original_y, $posXF, $posYF, $myWhite);
+    imageline($myImage, $posXF, $posYF, $posXB, $posYB, $myWhite);
 
   }
 
