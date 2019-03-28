@@ -17,7 +17,6 @@ mesure_capteur=[[0,4300],[0.5,4289],[1.0,4250],
         [9.0,1540],[9.5,1410],[10.0,1232],
         [10.5,0]]
 
-
 #convertie mesure thymio en cm
 def convert_cm(dist_thy):
     i=0
@@ -65,105 +64,124 @@ def obstacle_existe(num_capteur):
         return 1
 
 
-def DROITE():
-    reussite=0
+#Le but de cete methode est de faire un zigzag pour la detection d'obstacle afin de contourner celui-ci
+#return
+#test=0: test non reussi
+#test=1: test reussi
+#tracker: Tableau de suivre, deplacement du robot celon l'axe x ou y
+def zigzag_d(num_cp):
     cp0=0
     cp1=1
     cp2=2
     cp3=3
-    while(reussite == 0):
+    cp4=4
+    tracker = [[0 for i in range(2)] for j in range(3)]
+    tracker[0][0]='x'
+    tracker[1][0]='y'
+    tracker[2][0]='x'
+    etape=0
+    reussi=1
+    x=0
+    y=0
+    #Etape1: On se position
+    #codition:le robot doit etre face a l'ostacle
+    while(obstacle_existe(cp2)==1 and reussi==1):
         td(90)
-        if(obstacle_existe==1):
+        if(obstacle_existe(cp2)==0): #pas d'ostacle
+            avancer(3)
+            x=x+3
+            tracker[0][1]=x
             tg(90)
-            return False
+            reussi=1
+        else: #presence d'obstacle
+            reculer(x)
+            tg(90)
+            reussi=0
+            return [reussi,tracker]
+    #Configuration
+    td(90)
+    avancer(3)
+    x=x+3
+    tg(90)
+    avancer(3)
+    y=y+3
+    tg(90)
+    distance_obstacle=reperer_dist_obstacle(2, 1) #positionnement par defaut
+    dinst_3=distance_obstacle-3
+    avancer(dinst_3)
+    #Etape2
+    while(obstacle_existe(cp2)==1 and reussi==1):
+        td(90)
+        if(obstacle_existe(cp2)==0): #pas d'ostacle
+            avancer(3)
+            y=y+3
+            tracker[1][1]=y
+            tg(90)
+            reussi=1
         else:
-            avancer(5)
-            x=x+5
+            reculer(y)
+            td(90)
+            recule(tracker[0][1])
             tg(90)
-            if(obstacle_existe==0):
-                avancer(5)
-                y=y+5
-                tg(90)
-                reussite=True
-                return True
-            else:
-                allerA(0,0,True) #retour a la position initial avec rotation initialiser
-                return False
+            reussi=0
+            return [reussi,tracker]
+    #Configuration
+    td(90)
+    avancer(3)
+    y=y+3
+    tg(90)
+    avancer(3)
+    x=x+3
+    tg(90)
+    distance_obstacle=reperer_dist_obstacle(2, 1) #positionnement par defaut
+    dinst_3=distance_obstacle-3
+    avancer(dinst_3)
+    #Etape3
+    td(90)
+    avancer(tracker[0][1])
+    td(90)
+    x=x+tracker[0][1]
+    tracker[2][1]=x
+    reussite=1
+    return [reussi,tracker]
 
-def GAUCHE():
-    reussite=0
-    cp0=0
-    cp1=1
-    cp2=2
-    cp3=3
-    while(reussite == 0):
+
+def zigzag_g(num_cp):
+    reussi=1
+    x=0
+    #le robot doit etre face a l'ostacle droite
+    while(obstacle_existe(num_cp)==1 and reussi==1):
         tg(90)
-        if(obstacle_existe==1):
+        if(obstacle_existe(num_cp)==0):
+            avancer(3)
+            x=x+3
             td(90)
-            return False
+            reussi=1
         else:
-            avancer(5)
-            y=y+5
+            reculer(x)
             td(90)
-            if(obstacle_existe==0):
-                avancer(5)
-                x=x+5
-                td(90)
-                reussite=True
-                return True
-            else:
-                allerA(0,0,True) #retour a la position initial avec rotation initialiser
-                return False
+            reussi=0
+    return [reussi,x]
+
 
 #Cette methode permet dans un premeir temps de detecter un obstacle, puis de l'evite et le contourner_obstacle
 #par la droite si possible sinon par la gauche.
 #assurer que le capteur le plus a droite et a gauche n'a aps dobstale trop prche pour contourne
 
 def contourner_obstacle():
+    parcour_droite=1
+    parcour_gauche=0
+    test=0
     while(obstacle_existe(2)==0):
         avancer(2)
     distance_obstacle=reperer_dist_obstacle(2, 1)
     dinst_3=distance_obstacle-3
     avancer(dinst_3)#Avancer jusqu'a 3cm de l'ostacle
-"""
-    impossible=False
-    objectif=False
-    while(reussite != True and objectif != True):
-        if(DROITE() == True):
-            if(DROITE() == True):
-                td(180)
-                objectif=True
-            else:
-                GAUCHE()
-                y=y-10
-                if(GAUCHE()==True):
-                    if(GAUCHE()==True):
-                        rg(180)
-                        objectif=True
-                    elif(GAUCHE()==False):
-                        impossible=True
-                        DROITE()
-                    else:
-                        impossible=True
-        else:
-            if(GAUCHE() == True):
-                if(GAUCHE() == True):
-                    tg(180)
-                    objectif=True
-                else:
-                    impossible=True
-                    DROITE()
-                    y=y-10
-            else:
-                impossible=True
-    if(impossible==False and objectif==True):
-        return True
-    else:
-        return False
-"""
 
 
 ################ MAIN CONTOURNER ################
-contourner_obstacle()
+#contourner_obstacle()
 #avancer(3)
+test=zigzag_d(2)
+print(test)
 quitter()
