@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-servo = 4
+servo = 14
 
 def rotate(angle) :
 
