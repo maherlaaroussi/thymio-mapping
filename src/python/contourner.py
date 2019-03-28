@@ -38,7 +38,7 @@ def reperer_dist_obstacle(num_capteur, nb_iter):
             m=r.prox_horizontal[num_capteur]
             time.sleep(0.5)
             cm=convert_cm(m)
-            print(m,cm)
+            #print(m,cm)
         return cm
 
 def reperer_dist_obstacle_bis(num_capteur):
