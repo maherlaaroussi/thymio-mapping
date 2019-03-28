@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from ultrasonic import *
-from servomotor import *
+from package.ultrasonic import *
+from package.servomotor import *
 from math import *
-import curses
 
 # Nombre de mesure de distance à chaque step
-s = 5
+s = 14
 
 # Text form
 bold = "\033[1m"

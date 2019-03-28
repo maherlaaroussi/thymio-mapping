@@ -1,7 +1,7 @@
 <?php
 
   $filename = $_GET['filename'];
-  $size = 600;
+  $size = 400;
   $original_x = $size / 2;
   $original_y = $size / 2;
   $resize = 4;

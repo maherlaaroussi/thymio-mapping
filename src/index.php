@@ -33,42 +33,20 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
 
-				<form class="login100-form validate-form">
-
 					<span id="titre" class="login100-form-title p-b-70">
 						Thymio Mapping
 					</span>
 
 					<span id="image" class="login100-form-image">
-							<img id ="loading" src="" alt="Loading" hide>
+							<img id ="loading" src="" alt="Loading" hidden>
 						<img id ="blueprint" src="images/mapping.jpg" alt="Mapping">
 					</span>
-
-					<!--
-
-					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Entez votre numéro étudiant">
-						<input id="username" class="input100" type="text" name="username">
-						<span class="focus-input100" data-placeholder="Numéro étudiant"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-50" data-validate="Entrez votre mot de passe">
-						<input id="password" class="input100" type="password" name="password">
-						<span class="focus-input100" data-placeholder="Mot de passe"></span>
-					</div>
-
-					<div id="erreur" class="wrap-input100 m-b-50" hidden>
-						<span>Erreur de connexion !</span>
-					</div>
-
-					-->
 
 					<div class="container-login100-form-btn">
 						<button id="mapping" class="login100-form-btn" type="button">
 							Scanner
 						</button>
 					</div>
-
-				</form>
 
 			</div>
 		</div>

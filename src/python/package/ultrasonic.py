@@ -10,9 +10,9 @@ e2 = 24
 # SCAN =================================================
 def distance(capteur):
     d = 0
-    if (capteur == "front"):
+    if (capteur == "back"):
         d = dist(t1, e1)
-    elif (capteur == "back"):
+    elif (capteur == "front"):
         d = dist(t2, e2)
     return d
 
