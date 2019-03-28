@@ -248,14 +248,14 @@ def contourner_obstacle():
             parcour_gauche=1
     elif(parcour_droite==0 and parcour_gauche==1):
         test=zigzag_d()
-            if(test[0]==1):
-                print("Parcour possible a gauche")
-                x=x+test[1][0][1]+test[1][2][1]
-                y=y+test[1][1][1]
-                return 1
-            else:
-                parcour_droite=0
-                parcour_gauche=0
+        if(test[0]==1):
+            print("Parcour possible a gauche")
+            x=x+test[1][0][1]+test[1][2][1]
+            y=y+test[1][1][1]
+            return 1
+        else:
+            parcour_droite=0
+            parcour_gauche=0
     else:
         print("Echec du parcour droite et gauche")
         return 0
