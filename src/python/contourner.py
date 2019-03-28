@@ -141,10 +141,10 @@ def zigzag_d():
     td(90)
     x=x+tracker[0][1]
     tracker[2][1]=x
-    reussite=1
+    reussi=1
     return [reussi,tracker]
 
-def zigzag_g(num_cp):
+def zigzag_g():
     cp0=0
     cp1=1
     cp2=2
@@ -164,13 +164,60 @@ def zigzag_g(num_cp):
         if(obstacle_existe(cp2)==0):
             avancer(3)
             x=x+3
+            tracker[0][1]=x
             td(90)
             reussi=1
         else:
             reculer(x)
             td(90)
             reussi=0
-    return [reussi,x]
+            return [reussi, tracker]
+    #Configuration
+    tg(90)
+    avancer(12)
+    x=x+12
+    td(90)
+    avancer(22)
+    y=y+22
+    td(90)
+    distance_obstacle=reperer_dist_obstacle(2, 1) #positionnement par defaut
+    dinst_3=distance_obstacle-3
+    avancer(dinst_3)
+    #Etape2
+    while(obstacle_existe(cp2)==1 and reussi==1):
+        tg(90)
+        if(obstacle_existe(cp2)==0): #pas d'ostacle
+            avancer(3)
+            y=y+3
+            tracker[1][1]=y
+            td(90)
+            reussi=1
+        else:
+            reculer(y)
+            tg(90)
+            reculer(x)
+            td(90)
+            reussi=0
+            return [reussi,tracker]
+    #Configuration
+    tg(90)
+    avancer(12)
+    y=y+12
+    td(90)
+    avancer(22)
+    x=x+22
+    td(90)
+    distance_obstacle=reperer_dist_obstacle(2, 1) #positionnement par defaut
+    dinst_3=distance_obstacle-3
+    avancer(dinst_3)
+    #Etape3
+    tg(90)
+    avancer(tracker[0][1])
+    tg(90)
+    x=x+tracker[0][1]
+    tracker[2][1]=x
+    reussi=1
+    return [reussi,tracker]
 
 
 #Cette methode permet dans un premeir temps de detecter un obstacle, puis de l'evite et le contourner_obstacle
@@ -180,13 +227,40 @@ def contourner_obstacle():
     parcour_droite=1
     parcour_gauche=0
     test=0
+    x=0
+    y=0
     while(obstacle_existe(2)==0):
-        avancer(2)
+        avancer(3)
+        y=y+3
     distance_obstacle=reperer_dist_obstacle(2, 1)
     dinst_3=distance_obstacle-3
     avancer(dinst_3)#Avancer jusqu'a 3cm de l'ostacle
-    return 0
+    y=y+dinst_3
+    if(parcour_droite==1 and parcour_gauche==0):
+        test=zigzag_d()
+        if(test[0]==1):
+            print("Parcour possible a droite")
+            x=x+test[1][0][1]+test[1][2][1]
+            y=y+test[1][1][1]
+            return 1
+        else:
+            parcour_droite=0
+            parcour_gauche=1
+    elif(parcour_droite==0 and parcour_gauche==1):
+        test=zigzag_d()
+            if(test[0]==1):
+                print("Parcour possible a gauche")
+                x=x+test[1][0][1]+test[1][2][1]
+                y=y+test[1][1][1]
+                return 1
+            else:
+                parcour_droite=0
+                parcour_gauche=0
+    else:
+        print("Echec du parcour droite et gauche")
+        return 0
 
 ################ MAIN CONTOURNER ################
-print(zigzag_d())
+#print(zigzag_d())
+print(zigzag_g())
 quitter()
