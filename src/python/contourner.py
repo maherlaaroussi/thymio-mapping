@@ -262,5 +262,6 @@ def contourner_obstacle():
 
 ################ MAIN CONTOURNER ################
 #print(zigzag_d())
-print(zigzag_g())
+#print(zigzag_g())
+print(contourner_obstacle())
 quitter()
