@@ -27,21 +27,26 @@
 
     $xF_old = $posXF;
     $yF_old = $posYF;
-    $posXF = $value[1] * $resize * cos($value[0] / 180 * pi());
-    $posXF = $original_x + round($posXF, 2);
-    $posYF = $value[1] * $resize * sin($value[0] / 180 * pi());
-    $posYF = $original_y + round($posYF, 2);
+    if ($value[1] != 0) {
+      $posXF = $value[1] * $resize * cos($value[0] / 180 * pi());
+      $posXF = $original_x + round($posXF, 2);
+      $posYF = $value[1] * $resize * sin($value[0] / 180 * pi());
+      $posYF = $original_y + round($posYF, 2);
+      if ($i != 0) {
+        imageline($myImage, $xF_old, $yF_old, $posXF, $posYF, $myWhite);
+      }
+    }
 
     $xB_old = $posXB;
     $yB_old = $posYB;
-    $posXB = $value[2] * $resize * cos(($value[0] + 180) / 180 * pi());
-    $posXB = $original_x + round($posXB, 2);
-    $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
-    $posYB = $original_y + round($posYB, 2);
-
-    if ($i != 0) {
-      imageline($myImage, $xF_old, $yF_old, $posXF, $posYF, $myWhite);
-      imageline($myImage, $xB_old, $yB_old, $posXB, $posYB, $myWhite);
+    if ($value[1] != 0) {
+      $posXB = $value[2] * $resize * cos(($value[0] + 180) / 180 * pi());
+      $posXB = $original_x + round($posXB, 2);
+      $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
+      $posYB = $original_y + round($posYB, 2);
+      if ($i != 0) {
+        imageline($myImage, $xB_old, $yB_old, $posXB, $posYB, $myWhite);
+      }
     }
 
     $i++;
