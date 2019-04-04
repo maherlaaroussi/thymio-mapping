@@ -5,7 +5,7 @@
   $size = 600;
   $original_x = $size / 2;
   $original_y = $size / 2;
-  $resize = 4;
+  $resize = 5;
 
   $output = exec("sudo /usr/bin/python3 /var/www/html/python/main.py " .  $filename);
 
@@ -16,7 +16,6 @@
   imagesetthickness($myImage, 2);
 
   $output = json_decode($output);
-  $positions = [];
 
   $i = 0;
   $xF_old = 0;
@@ -41,14 +40,11 @@
     $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
     $posYB = $original_y + round($posYB, 2);
 
-    imageline ($myImage , $xF_old, $yF_old, $xF_old, $xF_old, $MyWhite);
-    imageline ($myImage , $xB_old, $xB_old, $xB_old, $xB_old, $MyWhite);
-
     $i++;
 
   }
 
-  header( "Content-type: image/png" );
+  header("Content-type: image/png");
   imagepng($myImage, $path_image);
   header("Content-disposition: attachment; filename=" . $path_image);
   header('Content-Description: File Transfer');
