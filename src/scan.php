@@ -5,13 +5,6 @@
 
 
   $output = exec("sudo /usr/bin/python3 /var/www/html/python/main.py " .  $filename);
-
-  $myImage = imagecreate($size, $size);
-
-  $myBlack = imagecolorallocate($myImage, 0, 0, 0);
-  $myWhite = imagecolorallocate($myImage, 255, 255, 255);
-  imagesetthickness($myImage, 2);
-
   $output = json_decode($output);
 
   $maxSize = 0;
@@ -27,6 +20,13 @@
   $original_y = $size / 2;
   $xEchelle = $size * 0.05;
   $yEchelle = $size * 0.95;
+
+  $myImage = imagecreate($size, $size);
+
+  $myBlack = imagecolorallocate($myImage, 0, 0, 0);
+  $myWhite = imagecolorallocate($myImage, 255, 255, 255);
+  
+  imagesetthickness($myImage, 2);
 
   $i = 0;
   $xF_old = 0;
