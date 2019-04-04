@@ -7,7 +7,7 @@
   $original_y = $size / 2;
   $resize = 4;
   $xEchelle = $size * 0.05;
-  $yEchelle = $size * 1.95;
+  $yEchelle = $size * 0.95;
 
 
   $output = exec("sudo /usr/bin/python3 /var/www/html/python/main.py " .  $filename);
