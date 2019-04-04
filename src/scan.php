@@ -6,6 +6,9 @@
   $original_x = $size / 2;
   $original_y = $size / 2;
   $resize = 4;
+  $xEchelle = $size * 0.05;
+  $yEchelle = $size * 1.95
+
 
   $output = exec("sudo /usr/bin/python3 /var/www/html/python/main.py " .  $filename);
 
@@ -52,6 +55,10 @@
     $i++;
 
   }
+
+  // Echelle
+  imageline($myImage, $xEchelle, $yEchelle, $xEchelle, ($yEchelle + $resize), $myWhite);
+  imageline($myImage, $xEchelle, $yEchelle, ($xEchelle + $resize), $yEchelle, $myWhite);
 
   header( "Content-type: image/png" );
   imagepng($myImage, $path_image);
