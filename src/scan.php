@@ -2,31 +2,23 @@
 
   $filename = $_GET['filename'];
   $path_image = $filename . ".png";
+  $size = 600;
+  $original_x = $size / 2;
+  $original_y = $size / 2;
+  $resize = 4;
+  $xEchelle = $size * 0.05;
+  $yEchelle = $size * 0.95;
 
 
   $output = exec("sudo /usr/bin/python3 /var/www/html/python/main.py " .  $filename);
-  $output = json_decode($output);
-
-  $maxSize = 0;
-
-  foreach ($output as $value) {
-    if ($value[1] > $maxSize) { $maxSize = $value[1]; }
-    if ($value[2] > $maxSize) { $maxSize = $value[2]; }
-  }
-
-  $resize = 4;
-  $size = $maxSize * $resize;
-  $original_x = $size / 2;
-  $original_y = $size / 2;
-  $xEchelle = $size * 0.05;
-  $yEchelle = $size * 0.95;
 
   $myImage = imagecreate($size, $size);
 
   $myBlack = imagecolorallocate($myImage, 0, 0, 0);
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
-  
   imagesetthickness($myImage, 2);
+
+  $output = json_decode($output);
 
   $i = 0;
   $xF_old = 0;
