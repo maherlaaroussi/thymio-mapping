@@ -16,6 +16,7 @@
   imagesetthickness($myImage, 2);
 
   $output = json_decode($output);
+  $positions = [];
 
   $i = 0;
   $xF_old = 0;
@@ -35,18 +36,33 @@
     $xB_old = $posXB;
     $yB_old = $posYB;
     $posXB = $value[2] * $resize * cos(($value[0] + 180) / 180 * pi());
-    $posXB = $original_x + round($posXB, 2);
+    $posXB = $original_x +$positions.push([posXF, posYF]);
+    $positions.push([posXB, posYB]); round($posXB, 2);
     $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
     $posYB = $original_y + round($posYB, 2);
 
-    if ($i != 0) {
-      imageline($myImage, $xF_old, $yF_old, $posXF, $posYF, $myWhite);
-      imageline($myImage, $xB_old, $yB_old, $posXB, $posYB, $myWhite);
-    }
+    $positions.push([posXF, posYF]);
+    $positions.push([posXB, posYB]);
 
     $i++;
 
   }
+
+  foreach ($positions as $val) {
+    $posSG[0] = ($val[0] < $posSG[0]) ? $val[0] : $posSG[0];
+    $posSG[1] = ($val[1] < $posSG[1]) ? $val[1] : $posSG[1];
+    $posSD[0] = ($val[0] < $posSD[0]) ? $val[0] : $posSD[0];
+    $posSD[1] = ($val[1] < $posSD[1]) ? $val[1] : $posSD[1];
+    $posIG[0] = ($val[0] < $posIG[0]) ? $val[0] : $posIG[0];
+    $posIG[1] = ($val[1] < $posIG[1]) ? $val[1] : $posIG[1];
+    $posID[0] = ($val[0] < $posID[0]) ? $val[0] : $posIG[0];
+    $posID[1] = ($val[1] < $posID[1]) ? $val[1] : $posIG[1];
+  }
+
+  imageline ($myImage , $posSG[0], $posSG[1], $posSD[0], $posSD[1], $MyWhite);
+  imageline ($myImage , $posSD[0], $posSD[1], $posID[0], $posID[1], $MyWhite);
+  imageline ($myImage , $posID[0], $posID[1], $posIG[0], $posIG[1], $MyWhite);
+  imageline ($myImage , $posSIG[0], $posIG[1], $posSG[0], $posSG[1], $MyWhite);
 
   header( "Content-type: image/png" );
   imagepng($myImage, $path_image);

@@ -7,6 +7,9 @@ e1 = 21
 t2 = 23
 e2 = 24
 
+# Timeout input/output : 15s
+timeout = 15
+
 # SCAN =================================================
 def distance(capteur):
     d = 0
@@ -28,22 +31,39 @@ def dist(t, e) :
     time.sleep(0.00001)
     GPIO.output(t, False)
 
+    # If fail
+    echec = False
+
+    # timeout
+    timelimit = time.time() + timeout
     while (GPIO.input(e) == 0):
         pulse_start = time.time()
+        if (time.time() < timelimit):
+            echec = True
+            break
+
+    # timeout
+    timelimit = time.time() + timeout
     while (GPIO.input(e) == 1):
         pulse_end = time.time()
+        if (time.time() < timelimit):
+            echec = True
+            break
 
     time.sleep(0.01)
 
     # Calculs
     try:
-        pulse_duration = pulse_end - pulse_start
-        distance = round(pulse_duration * 17150, 1)
+        if (echec):
+            distance = 0
+        else:
+            pulse_duration = pulse_end - pulse_start
+            distance = round(pulse_duration * 17150, 1)
     except:
-        distance = -1
+        distance = 0
 
     if (distance > 400):
-        distance = -1
+        distance = 0
 
     return distance
 
