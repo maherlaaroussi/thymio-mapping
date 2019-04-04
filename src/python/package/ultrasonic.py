@@ -38,7 +38,7 @@ def dist(t, e) :
     timelimit = time.time() + timeout
     while (GPIO.input(e) == 0):
         pulse_start = time.time()
-        if (time.time() < timelimit):
+        if (time.time() > timelimit):
             echec = True
             break
 
@@ -46,7 +46,7 @@ def dist(t, e) :
     timelimit = time.time() + timeout
     while (GPIO.input(e) == 1):
         pulse_end = time.time()
-        if (time.time() < timelimit):
+        if (time.time() > timelimit):
             echec = True
             break
 
