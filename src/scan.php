@@ -41,10 +41,8 @@
     $posYB = $value[2] * $resize * sin(($value[0] + 180) / 180 * pi());
     $posYB = $original_y + round($posYB, 2);
 
-    if ($i != 0) {
-      imageline ($myImage , $xF_old, $yF_old, $xF_old, $xF_old, $MyWhite);
-      imageline ($myImage , $xF_old, $xF_old, $xF_old, $xF_old, $MyWhite);
-    }
+    imageline ($myImage , $xF_old, $yF_old, $xF_old, $xF_old, $MyWhite);
+    imageline ($myImage , $xB_old, $xB_old, $xB_old, $xB_old, $MyWhite);
 
     $i++;
 
