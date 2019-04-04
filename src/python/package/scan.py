@@ -63,8 +63,8 @@ def scan(filename="nothing", mode="fast", verbose=False) :
             c2.append(distance("back"))
 
         # Selected values
-        vf = min(c1)
-        vb = min(c2)
+        vf = max(c1)
+        vb = max(c2)
 
         # -------------------------------------------------
 

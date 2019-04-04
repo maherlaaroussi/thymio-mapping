@@ -8,7 +8,7 @@ t2 = 23
 e2 = 24
 
 # Timeout input/output : 15s
-timeout = 15
+timeout = 10
 
 # SCAN =================================================
 def distance(capteur):
