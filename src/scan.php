@@ -57,8 +57,8 @@
   }
 
   // Echelle
-  imageline($myImage, $xEchelle, $yEchelle, $xEchelle, ($yEchelle + $resize), $myWhite);
-  imageline($myImage, $xEchelle, $yEchelle, ($xEchelle + $resize), $yEchelle, $myWhite);
+  imageline($myImage, $xEchelle, $yEchelle, $xEchelle, ($yEchelle - $resize * 10), $myWhite);
+  imageline($myImage, $xEchelle, $yEchelle, ($xEchelle - $resize * 10), $yEchelle, $myWhite);
 
   header( "Content-type: image/png" );
   imagepng($myImage, $path_image);
