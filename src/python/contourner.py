@@ -98,47 +98,47 @@ def zigzag_d():
             reussi=0
             return [reussi,tracker]
     #Configuration
-    td(90)
+    td(85)
     avancer(12)
     x=x+12
-    tg(90)
+    tg(85)
     avancer(22)
     y=y+22
-    tg(90)
+    tg(85)
     distance_obstacle=reperer_dist_obstacle(2, 1) #positionnement par defaut
     dinst_3=distance_obstacle-3
     avancer(dinst_3)
     #Etape2
     while(obstacle_existe(cp2)==1 and reussi==1):
-        td(90)
+        td(85)
         if(obstacle_existe(cp2)==0): #pas d'ostacle
             avancer(3)
             y=y+3
             tracker[1][1]=y
-            tg(90)
+            tg(85)
             reussi=1
         else:
             reculer(y)
-            td(90)
+            td(85)
             recule(tracker[0][1])
-            tg(90)
+            tg(85)
             reussi=0
             return [reussi,tracker]
     #Configuration
-    td(90)
+    td(85)
     avancer(12)
     y=y+12
-    tg(90)
+    tg(85)
     avancer(22)
     x=x+22
-    tg(90)
+    tg(85)
     distance_obstacle=reperer_dist_obstacle(2, 1) #positionnement par defaut
     dinst_3=distance_obstacle-3
     avancer(dinst_3)
     #Etape3
-    td(90)
+    td(85)
     avancer(tracker[0][1])
-    td(90)
+    td(85)
     x=x+tracker[0][1]
     tracker[2][1]=x
     reussi=1
@@ -160,60 +160,60 @@ def zigzag_g():
     y=0
     #le robot doit etre face a l'ostacle droite
     while(obstacle_existe(cp2)==1 and reussi==1):
-        tg(90)
+        tg(85)
         if(obstacle_existe(cp2)==0):
             avancer(3)
             x=x+3
             tracker[0][1]=x
-            td(90)
+            td(85)
             reussi=1
         else:
             reculer(x)
-            td(90)
+            td(85)
             reussi=0
             return [reussi, tracker]
     #Configuration
-    tg(90)
+    tg(85)
     avancer(12)
     x=x+12
-    td(90)
+    td(85)
     avancer(22)
     y=y+22
-    td(90)
+    td(85)
     distance_obstacle=reperer_dist_obstacle(2, 1) #positionnement par defaut
     dinst_3=distance_obstacle-3
     avancer(dinst_3)
     #Etape2
     while(obstacle_existe(cp2)==1 and reussi==1):
-        tg(90)
+        tg(85)
         if(obstacle_existe(cp2)==0): #pas d'ostacle
             avancer(3)
             y=y+3
             tracker[1][1]=y
-            td(90)
+            td(85)
             reussi=1
         else:
             reculer(y)
-            tg(90)
+            tg(85)
             reculer(x)
-            td(90)
+            td(85)
             reussi=0
             return [reussi,tracker]
     #Configuration
-    tg(90)
+    tg(85)
     avancer(12)
     y=y+12
-    td(90)
+    td(85)
     avancer(22)
     x=x+22
-    td(90)
+    td(85)
     distance_obstacle=reperer_dist_obstacle(2, 1) #positionnement par defaut
     dinst_3=distance_obstacle-3
     avancer(dinst_3)
     #Etape3
-    tg(90)
+    tg(85)
     avancer(tracker[0][1])
-    tg(90)
+    tg(85)
     x=x+tracker[0][1]
     tracker[2][1]=x
     reussi=1
