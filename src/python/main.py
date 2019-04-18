@@ -6,7 +6,7 @@ import sys
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-print(str(scan(sys.argv[1], "normal")))
+print(str(scan(sys.argv[1], "slow")))
 
 # Clean GPIOs & Stop
 GPIO.cleanup()

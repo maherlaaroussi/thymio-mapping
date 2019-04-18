@@ -2,7 +2,7 @@
 
   $filename = $_GET['filename'];
   $path_image = $filename . ".png";
-  $size = 600;
+  $size = 1000;
   $original_x = $size / 2;
   $original_y = $size / 2;
   $resize = 4;
@@ -16,7 +16,7 @@
 
   $myBlack = imagecolorallocate($myImage, 0, 0, 0);
   $myWhite = imagecolorallocate($myImage, 255, 255, 255);
-  imagesetthickness($myImage, 2);
+  imagesetthickness($myImage, 10);
 
   $output = json_decode($output);
 
